@@ -79,22 +79,6 @@ class TodoListViewController: UIViewController {
         inputTextField.resignFirstResponder()
     }
     
-    
-    
-    @IBAction func JHNoti(_ sender: Any) {
-        self.setNotification()
-    }
-    
-    
-
-    func setNotification(){
-           let manager = LocalNotificationManager()
-           manager.requestPermission()
-           manager.addNotification(title: "This is a test reminder")
-           manager.scheduleNotifications()
-       }
-
-    
 }
 
 
