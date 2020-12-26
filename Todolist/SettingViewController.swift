@@ -26,6 +26,7 @@ class SettingViewController: UITableViewController {
     
     @IBAction func AlertOnOff(_ sender: UISwitch) {
         if sender.isOn {
+            isOn = true
             self.setNotification()
         } else {
            
@@ -35,10 +36,9 @@ class SettingViewController: UITableViewController {
     }
     
     func setNotification(){
-           let manager = LocalNotificationManager()
-           manager.requestPermission()
-           manager.addNotification(title: "This is a test reminder")
-           manager.scheduleNotifications()
+            let manager = LocalNotificationManager()
+            manager.addNotification(title: "오늘의 할일 %남았습니다.")
+            manager.schedule()
        }
     
 }

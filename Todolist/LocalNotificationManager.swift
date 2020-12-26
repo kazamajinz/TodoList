@@ -20,7 +20,7 @@ class LocalNotificationManager {
     func requestPermission() -> Void {
         UNUserNotificationCenter
             .current()
-            .requestAuthorization(options: [.alert, .badge, .alert]) { granted, error in
+            .requestAuthorization(options: [.alert, .badge, .sound]) { granted, error in
                 if granted == true && error == nil {
                     // We have permission!
                 }
@@ -30,19 +30,38 @@ class LocalNotificationManager {
     func addNotification(title: String) -> Void {
         notifications.append(JHNotification(id: UUID().uuidString, title: title))
     }
-    
-    func scheduleNotifications() -> Void {
-        for notification in notifications {
-            let content = UNMutableNotificationContent()
-            content.title = notification.title
+    func schedule() -> Void {
+              UNUserNotificationCenter.current().getNotificationSettings { settings in
+                  switch settings.authorizationStatus {
+                  case .notDetermined:
+                      self.requestPermission()
+                  case .authorized, .provisional:
+                      self.scheduleNotifications()
+                  default:
+                      break
+                    
+                }
+            }
             
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
-            let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
-            
-            UNUserNotificationCenter.current().add(request) { error in
-                guard error == nil else { return }
-                print("Scheduling notification with id: \(notification.id)")
+        }
+        
+        func scheduleNotifications() -> Void {
+            for notification in notifications {
+                let content = UNMutableNotificationContent()
+                content.title = notification.title
+                content.sound = .default
+                
+                var dateComponents = DateComponents()
+                dateComponents.calendar = Calendar.current
+                dateComponents.hour = 0
+                dateComponents.minute = 59
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
+                
+                UNUserNotificationCenter.current().add(request) { error in
+                    guard error == nil else { return }
+                    print("Scheduling notification with id: \(notification.id)")
+                }
             }
         }
-    }
 }

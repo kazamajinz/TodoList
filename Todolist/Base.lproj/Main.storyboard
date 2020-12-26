@@ -203,13 +203,6 @@
                                     <constraint firstItem="jgI-60-RDd" firstAttribute="leading" secondItem="Yjj-fl-sBL" secondAttribute="trailing" constant="10" id="ncb-Ij-bf0"/>
                                 </constraints>
                             </view>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="V3G-fM-3Lv">
-                                <rect key="frame" x="184" y="433" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <action selector="JHNoti:" destination="BYZ-38-t0r" eventType="valueChanged" id="AhD-6k-faR"/>
-                                </connections>
-                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -246,7 +239,7 @@
             </objects>
             <point key="canvasLocation" x="-297.10144927536237" y="1676.7857142857142"/>
         </scene>
-        <!--Setting View Controller-->
+        <!--Settings-->
         <scene sceneID="Qbf-1h-1T8">
             <objects>
                 <tableViewController id="xfH-EW-rvj" customClass="SettingViewController" customModule="Todolist" customModuleProvider="target" sceneMemberID="viewController">
@@ -377,7 +370,7 @@
                             <outlet property="delegate" destination="xfH-EW-rvj" id="clK-3I-eDj"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="QnB-3S-gFh"/>
+                    <navigationItem key="navigationItem" title="Settings" id="QnB-3S-gFh"/>
                     <connections>
                         <outlet property="TimeAlert" destination="An3-B7-1qP" id="Aqq-df-4Am"/>
                     </connections>
