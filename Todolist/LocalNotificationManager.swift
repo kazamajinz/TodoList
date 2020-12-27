@@ -54,8 +54,10 @@ class LocalNotificationManager {
                 let todayCount = todoListViewModel.todayTodos.count
                 let todayTodosNotDone = todoListViewModel.todayTodosNotDone.count
                //let percent = CGFloat(todayTodosisNotDone/todayCount*100)
-
+                
                 content.title = notification.title
+                
+                
                 
                 if todayCount == 0 {
                 } else {

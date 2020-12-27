@@ -23,6 +23,7 @@ class SettingViewController: UITableViewController {
     
     let defaults = UserDefaults.standard
     let alertOn = "alertOn"
+    let dateAlertKey = "dateAlertKey"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +36,11 @@ class SettingViewController: UITableViewController {
            TimeAlert.isOn = isOn as! Bool
             self.setNotification()
         }
- 
-        self.setNotification()
+ /*
+        if let dateAlert = defaults.array(forKey: dateAlertKey) {
+            timeText. = dateAlert as? <Any>
+        }
+   */
     }
     
     func createDatePicker() {
@@ -47,6 +51,7 @@ class SettingViewController: UITableViewController {
         // bar button
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         toolbar.setItems([doneBtn], animated: true)
+      //  defaults.set([doneBtn], forKey: dateAlertKey)
         
         // assign toolbar
         timeText.inputAccessoryView = toolbar
@@ -64,10 +69,9 @@ class SettingViewController: UITableViewController {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "hh : mm a"
-        /*
-        let dateAlert = formatter.dateFormat
-        defaults.set(dateAlert, forKey: alertOn)
-        */
+        
+        
+        
         
         /*
         let hourFormatter = DateFormatter()
