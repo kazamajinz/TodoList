@@ -112,7 +112,7 @@ class TodoViewModel {
         return todos.filter { $0.isToday == false }
     }
     
-    var todayTodosisNotDone: [Todo] {
+    var todayTodosNotDone: [Todo] {
         return todos.filter {$0.isToday == true && $0.isDone == false}
     }
     

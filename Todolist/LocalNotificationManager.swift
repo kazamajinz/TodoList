@@ -52,27 +52,35 @@ class LocalNotificationManager {
                 
                 let todoListViewModel = TodoViewModel()
                 let todayCount = todoListViewModel.todayTodos.count
-                let todayTodosisNotDone = todoListViewModel.todayTodosisNotDone.count
+                let todayTodosNotDone = todoListViewModel.todayTodosNotDone.count
                //let percent = CGFloat(todayTodosisNotDone/todayCount*100)
 
                 content.title = notification.title
                 
                 if todayCount == 0 {
                 } else {
-                    if todayTodosisNotDone == 0 {
+                    if todayTodosNotDone == 0 {
                        content.body = "오늘의 할일을 모두 완수하였습니다.\n" + "내일도 오늘처럼 모두 완수해주세요.🤗"
                     } else {
-                       content.body = "오늘의 할일이 \(todayTodosisNotDone)/\(todayCount)만큼 진행되었습니다.\n" + "나머지 오늘의 할일 \(todayTodosisNotDone)개를 완수해주세요😅."
+                       content.body = "오늘의 할일이 \(todayTodosNotDone)/\(todayCount)만큼 진행되었습니다.\n" + "나머지 오늘의 할일 \(todayTodosNotDone)개를 완수해주세요😅."
                     }
                 }
-                
+                /*
+                guard todayCount == 0 else {
+                    if todayTodosNotDone == 0 {
+                       content.body = "오늘의 할일을 모두 완수하였습니다.\n" + "내일도 오늘처럼 모두 완수해주세요.🤗"
+                    } else {
+                       content.body = "오늘의 할일이 \(todayTodosNotDone)/\(todayCount)만큼 진행되었습니다.\n" + "나머지 오늘의 할일 \(todayTodosNotDone)개를 완수해주세요😅."
+                    }
+                }
+                */
                 content.sound = .default
-                content.badge = 0
+                content.badge = 1
                 
                 var dateComponents = DateComponents()
                 dateComponents.calendar = Calendar.current
-                dateComponents.hour = 11
-                dateComponents.minute = 14
+                dateComponents.hour = 15
+                dateComponents.minute = 30
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
                 let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
                 
