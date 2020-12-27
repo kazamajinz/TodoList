@@ -88,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				9B2830C025970B4700F814DE /* Todolist */,
+				9BC993242598F4EA00526B97 /* Widget */,
 				9B2830D725970B4B00F814DE /* TodolistTests */,
 				9B2830E225970B4B00F814DE /* TodolistUITests */,
 				9B2830BF25970B4700F814DE /* Products */,
@@ -138,6 +139,13 @@
 				9B2830E525970B4B00F814DE /* Info.plist */,
 			);
 			path = TodolistUITests;
+			sourceTree = "<group>";
+		};
+		9BC993242598F4EA00526B97 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Widget;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
