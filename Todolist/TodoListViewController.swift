@@ -154,7 +154,7 @@ extension TodoListViewController: UICollectionViewDataSource {
         
         cell.deleteButtonTapHandler = {
             
-            let alert = UIAlertController(title: "123", message: "지우시겠습니까?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "알람", message: "지우시겠습니까?", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "삭제", style: .destructive) { (_) in
                 
                 self.todoListViewModel.deleteTodo(todo)
@@ -282,7 +282,12 @@ class TodoListCell: UICollectionViewCell {
         tradeButton.isHidden = false
         showStrikeThrough(false)
     }
-    
+    /*
+    func badgeReset() {
+        let content = UNMutableNotificationContent()
+        content.badge = 0
+    }
+    */
     
     @IBAction func checkButtonTapped(_ sender: Any) {
         checkButton.isSelected = !checkButton.isSelected
