@@ -384,13 +384,16 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nv3-8g-HdT">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nv3-8g-HdT" userLabel="segDarkMode">
                                                     <rect key="frame" x="211" y="6.5" width="143" height="32"/>
                                                     <segments>
                                                         <segment title="Auto"/>
                                                         <segment title="" image="sun.max" catalog="system"/>
                                                         <segment title="" image="moon.fill" catalog="system"/>
                                                     </segments>
+                                                    <connections>
+                                                        <action selector="modeChanged:" destination="xfH-EW-rvj" eventType="valueChanged" id="1lX-Me-wk2"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -398,6 +401,7 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="854-hx-eNx" secondAttribute="trailing" constant="20" symbolic="YES" id="2Fr-nN-82l"/>
                                                 <constraint firstAttribute="trailing" secondItem="nv3-8g-HdT" secondAttribute="trailing" constant="20" id="5Gw-f5-4dr"/>
                                                 <constraint firstItem="854-hx-eNx" firstAttribute="top" secondItem="GwF-mV-NnT" secondAttribute="topMargin" id="FgQ-5B-K3m"/>
+                                                <constraint firstItem="nv3-8g-HdT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="854-hx-eNx" secondAttribute="trailing" constant="8" symbolic="YES" id="d9X-8w-Z1V"/>
                                                 <constraint firstItem="854-hx-eNx" firstAttribute="centerY" secondItem="GwF-mV-NnT" secondAttribute="centerY" id="dzc-78-0nM"/>
                                                 <constraint firstItem="nv3-8g-HdT" firstAttribute="centerY" secondItem="GwF-mV-NnT" secondAttribute="centerY" id="nzK-sk-sqe"/>
                                             </constraints>

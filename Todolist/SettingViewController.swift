@@ -28,7 +28,10 @@ class SettingViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-
+        /*
+        overrideUserInterfaceStyle = .light     //라이트모드
+        overrideUserInterfaceStyle = .dark    //다크모드
+         */
         // Do any additional setup after loading the view.
         createDatePicker()
       
@@ -127,11 +130,11 @@ class SettingViewController: UITableViewController {
     @objc func darkModeAction() {
         switch darkModeToggle.selectedSegmentIndex {
             
-        case 0: view.backgroundColor = .black
+            case 0: overrideUserInterfaceStyle = .unspecified
                     
-            case 1: view.backgroundColor = .red
+            case 1:   overrideUserInterfaceStyle = .light
                     
-            case 2: view.backgroundColor = .blue
+            case 2:   overrideUserInterfaceStyle = .dark
                 
             default: return
         }
