@@ -300,7 +300,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="APP FUNCTION" id="feT-Ze-TJ7">
+                            <tableViewSection headerTitle="ALERT FUNCTION" id="feT-Ze-TJ7">
                                 <cells>
                                     <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="o3w-xQ-sft">
                                         <rect key="frame" x="20" y="198.5" width="374" height="43.5"/>
@@ -348,6 +348,7 @@
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IYe-3M-g9L">
                                                     <rect key="frame" x="267" y="5" width="85" height="34"/>
+                                                    <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="85" id="N3P-fw-lWS"/>
                                                     </constraints>
@@ -367,6 +368,42 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="COLOR FUNCTION" id="RBQ-Us-79r">
+                                <cells>
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="BuJ-xw-Whe">
+                                        <rect key="frame" x="20" y="341.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BuJ-xw-Whe" id="GwF-mV-NnT">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DarkMode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="854-hx-eNx">
+                                                    <rect key="frame" x="20" y="11" width="79.5" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nv3-8g-HdT">
+                                                    <rect key="frame" x="211" y="6.5" width="143" height="32"/>
+                                                    <segments>
+                                                        <segment title="Auto"/>
+                                                        <segment title="" image="sun.max" catalog="system"/>
+                                                        <segment title="" image="moon.fill" catalog="system"/>
+                                                    </segments>
+                                                </segmentedControl>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="854-hx-eNx" firstAttribute="leading" secondItem="GwF-mV-NnT" secondAttribute="leadingMargin" id="1bG-YQ-O4o"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="854-hx-eNx" secondAttribute="trailing" constant="20" symbolic="YES" id="2Fr-nN-82l"/>
+                                                <constraint firstAttribute="trailing" secondItem="nv3-8g-HdT" secondAttribute="trailing" constant="20" id="5Gw-f5-4dr"/>
+                                                <constraint firstItem="854-hx-eNx" firstAttribute="top" secondItem="GwF-mV-NnT" secondAttribute="topMargin" id="FgQ-5B-K3m"/>
+                                                <constraint firstItem="854-hx-eNx" firstAttribute="centerY" secondItem="GwF-mV-NnT" secondAttribute="centerY" id="dzc-78-0nM"/>
+                                                <constraint firstItem="nv3-8g-HdT" firstAttribute="centerY" secondItem="GwF-mV-NnT" secondAttribute="centerY" id="nzK-sk-sqe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="xfH-EW-rvj" id="CwJ-ah-BZV"/>
@@ -376,6 +413,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="QnB-3S-gFh"/>
                     <connections>
                         <outlet property="TimeAlert" destination="An3-B7-1qP" id="Aqq-df-4Am"/>
+                        <outlet property="darkModeToggle" destination="nv3-8g-HdT" id="6dc-Wr-IXG"/>
                         <outlet property="timeText" destination="IYe-3M-g9L" id="h4H-h8-Yf8"/>
                     </connections>
                 </tableViewController>
@@ -488,7 +526,9 @@
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="moon.fill" catalog="system" width="128" height="121"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="sun.max" catalog="system" width="128" height="124"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -78,9 +78,15 @@ class LocalNotificationManager {
                 content.badge = 1
                 
                 var dateComponents = DateComponents()
+                
+                /*
+                let timeText = SettingViewController()
+                let hourAlert = timeText.donePressed(hourAlert)
+                */
+                
                 dateComponents.calendar = Calendar.current
-                dateComponents.hour = 15
-                dateComponents.minute = 30
+                dateComponents.hour = 21
+                dateComponents.minute = 12
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
                 let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
                 

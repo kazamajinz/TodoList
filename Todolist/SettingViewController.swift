@@ -16,16 +16,27 @@ class SettingViewController: UITableViewController {
     
     @IBOutlet weak var timeText: UITextField!
     
+     @IBOutlet weak var darkModeToggle: UISegmentedControl!
+    
+    
     let datePicker = UIDatePicker()
+    
+    let defaults = UserDefaults.standard
+    let alertOn = "alertOn"
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
 
         // Do any additional setup after loading the view.
         createDatePicker()
-        
-        TimeAlert.isOn = isOn
-        
+      
+        if let isOn = defaults.value(forKey: alertOn) {
+           TimeAlert.isOn = isOn as! Bool
+            self.setNotification()
+        }
+ 
+        self.setNotification()
     }
     
     func createDatePicker() {
@@ -53,15 +64,32 @@ class SettingViewController: UITableViewController {
         
         let formatter = DateFormatter()
         formatter.dateFormat = "hh : mm a"
+        /*
+        let dateAlert = formatter.dateFormat
+        defaults.set(dateAlert, forKey: alertOn)
+        */
+        
+        /*
+        let hourFormatter = DateFormatter()
+        hourFormatter.dateFormat = "HH"
+        let minuteFormatter = DateFormatter()
+        minuteFormatter.dateFormat = "mm"
+        let hourAlert = hourFormatter.string(from: datePicker.date)
+        let minuteAlert = minuteFormatter.string(from: datePicker.date)
+        print(hourAlert)
+        print(minuteAlert)
+        */
         
         timeText.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
     
     @IBAction func AlertOnOff(_ sender: UISwitch) {
+        defaults.set(sender.isOn, forKey: alertOn)
         if sender.isOn {
             isOn = true
             self.setNotification()
+            
         } else {
            
             //초기화값 넣기
@@ -82,5 +110,37 @@ class SettingViewController: UITableViewController {
         
         manager.schedule()
     }
+    
+    
+    func setupView() {
+        setupDarkModeToggle()
+    }
+    
+    func setupDarkModeToggle() {
+        darkModeToggle.addTarget(self, action: #selector(darkModeAction), for: .touchUpInside)
+    }
+    
+    @objc func darkModeAction() {
+        switch darkModeToggle.selectedSegmentIndex {
+            
+        case 0: view.backgroundColor = .black
+                    
+            case 1: view.backgroundColor = .red
+                    
+            case 2: view.backgroundColor = .blue
+                
+            default: return
+        }
+    }
+    
+    /*
+    func saveAllData() {
+        UserDefaults.standard.set("hohyeon", forKey: "userID")
+    }
+    
+    func loadAllData() {
+      
+    }
+    */
 }
 

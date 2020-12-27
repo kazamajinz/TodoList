@@ -176,6 +176,8 @@ extension TodoListViewController: UICollectionViewDataSource {
         cell.designMyCell()
         
         
+        
+        
         cell.contentView.layer.cornerRadius = 4.0
         cell.contentView.layer.borderWidth = 1.0
         cell.contentView.layer.borderColor = UIColor.clear.cgColor
