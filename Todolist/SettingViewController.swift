@@ -28,6 +28,10 @@ class SettingViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+        
+        let attributes = [NSAttributedString.Key.foregroundColor:UIColor.label, NSAttributedString.Key.font:UIFont(name: "Verdana-bold", size: 25)]
+                self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
+        
         /*
         overrideUserInterfaceStyle = .light     //라이트모드
         overrideUserInterfaceStyle = .dark    //다크모드
@@ -41,9 +45,11 @@ class SettingViewController: UITableViewController {
         }
  /*
         if let dateAlert = defaults.array(forKey: dateAlertKey) {
-            timeText. = dateAlert as? <Any>
+            timeText.text = dateAlert as! array
         }
    */
+        
+        
     }
     
     func createDatePicker() {
@@ -55,6 +61,8 @@ class SettingViewController: UITableViewController {
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         toolbar.setItems([doneBtn], animated: true)
       //  defaults.set([doneBtn], forKey: dateAlertKey)
+        
+       // UserDefaults.standard.set([doneBtn], forKey: "dateAlertKey")
         
         // assign toolbar
         timeText.inputAccessoryView = toolbar
@@ -73,10 +81,6 @@ class SettingViewController: UITableViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "hh : mm a"
         
-        
-        
-        
-        /*
         let hourFormatter = DateFormatter()
         hourFormatter.dateFormat = "HH"
         let minuteFormatter = DateFormatter()
@@ -85,11 +89,12 @@ class SettingViewController: UITableViewController {
         let minuteAlert = minuteFormatter.string(from: datePicker.date)
         print(hourAlert)
         print(minuteAlert)
-        */
+        
         
         timeText.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
+    
     
     @IBAction func AlertOnOff(_ sender: UISwitch) {
         defaults.set(sender.isOn, forKey: alertOn)

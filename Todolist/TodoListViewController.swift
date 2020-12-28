@@ -30,8 +30,15 @@ class TodoListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
+        let attributes = [NSAttributedString.Key.foregroundColor:UIColor.label, NSAttributedString.Key.font:UIFont(name: "Verdana-bold", size: 25)]
+                self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
+        /*
+        let navbarTitle = UILabel()
+            navbarTitle.text = "My nav title"
+            navbarTitle.minimumScaleFactor = 0.5
+            navbarTitle.adjustsFontSizeToFitWidth = true
+            navigationItem.titleView = navbarTitle
+        */
         // [x] TODO: 키보드 디텍션
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)

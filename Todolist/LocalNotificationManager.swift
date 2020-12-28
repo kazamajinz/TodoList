@@ -81,10 +81,12 @@ class LocalNotificationManager {
                 
                 var dateComponents = DateComponents()
                 
-                /*
-                let timeText = SettingViewController()
-                let hourAlert = timeText.donePressed(hourAlert)
-                */
+                
+                
+                
+               // let timeText = SettingViewController()
+               // let hourAlert = timeText.donePressed()
+                
                 
                 dateComponents.calendar = Calendar.current
                 dateComponents.hour = 21
