@@ -16,7 +16,7 @@ class SettingViewController: UITableViewController {
     
     @IBOutlet weak var timeText: UITextField!
     
-     @IBOutlet weak var darkModeToggle: UISegmentedControl!
+
     
     
     let datePicker = UIDatePicker()
@@ -27,7 +27,7 @@ class SettingViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
+     //   setupView()
         
         let attributes = [NSAttributedString.Key.foregroundColor:UIColor.label, NSAttributedString.Key.font:UIFont(name: "Verdana-bold", size: 25)]
                 self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
@@ -100,7 +100,7 @@ class SettingViewController: UITableViewController {
         defaults.set(sender.isOn, forKey: alertOn)
         if sender.isOn {
             isOn = true
-            self.setNotification()
+           // self.setNotification()
             
         } else {
            
@@ -123,7 +123,7 @@ class SettingViewController: UITableViewController {
         manager.schedule()
     }
     
-    
+    /*
     func setupView() {
         setupDarkModeToggle()
     }
@@ -131,20 +131,42 @@ class SettingViewController: UITableViewController {
     func setupDarkModeToggle() {
         darkModeToggle.addTarget(self, action: #selector(darkModeAction), for: .touchUpInside)
     }
+    */
     
+    @IBAction func segue(_ sender: UISegmentedControl) {
+        let plist = UserDefaults.standard
+        if sender.selectedSegmentIndex == 0 {
+            plist.setValue(nil, forKey: "overrideUserInterfaceStyle")
+        }else if sender.selectedSegmentIndex == 1 {
+            plist.setValue("Light", forKey: "overrideUserInterfaceStyle")
+            plist.synchronize()
+            let color = plist.string(forKey: "overrideUserInterfaceStyle")
+            print(color!)
+        }else{
+            plist.setValue("Dark", forKey: "overrideUserInterfaceStyle")
+        }
+        
+    }
+    
+    
+    /*
     @objc func darkModeAction() {
+        //let plist = UserDefaults.standard
         switch darkModeToggle.selectedSegmentIndex {
             
-            case 0: overrideUserInterfaceStyle = .unspecified
-                    
-            case 1:   overrideUserInterfaceStyle = .light
-                    
-            case 2:   overrideUserInterfaceStyle = .dark
+        case 0: print("0")
+            //plist.setValue(nil, forKey: "overrideUserInterfaceStyle")
+            
+        case 1: print("1")
+            //plist.setValue("Light", forKey: "Appearance")
+                
+        case 2: print("2")
+            //plist.setValue("Dark", forKey: "Appearance")
                 
             default: return
         }
     }
-    
+    */
     /*
     func saveAllData() {
         UserDefaults.standard.set("hohyeon", forKey: "userID")

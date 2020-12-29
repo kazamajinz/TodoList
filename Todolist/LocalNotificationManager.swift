@@ -53,7 +53,6 @@ class LocalNotificationManager {
                 let todoListViewModel = TodoViewModel()
                 let todayCount = todoListViewModel.todayTodos.count
                 let todayTodosNotDone = todoListViewModel.todayTodosNotDone.count
-               //let percent = CGFloat(todayTodosisNotDone/todayCount*100)
                 
                 content.title = notification.title
                 
@@ -77,7 +76,7 @@ class LocalNotificationManager {
                 }
                 */
                 content.sound = .default
-                content.badge = 1
+                // content.badge = 1
                 
                 var dateComponents = DateComponents()
                 
@@ -90,7 +89,7 @@ class LocalNotificationManager {
                 
                 dateComponents.calendar = Calendar.current
                 dateComponents.hour = 21
-                dateComponents.minute = 12
+                dateComponents.minute = 30
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
                 let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
                 

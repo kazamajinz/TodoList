@@ -400,20 +400,20 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="COLOR FUNCTION" id="RBQ-Us-79r">
                                 <cells>
-                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="BuJ-xw-Whe">
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="blP-NQ-2YK">
                                         <rect key="frame" x="20" y="385.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BuJ-xw-Whe" id="GwF-mV-NnT">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="blP-NQ-2YK" id="P8B-8A-yPN">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DarkMode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="854-hx-eNx">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DarkMode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dD6-v3-0OP">
                                                     <rect key="frame" x="20" y="11" width="79.5" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="nv3-8g-HdT" userLabel="segDarkMode">
+                                                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="sbk-7u-giw">
                                                     <rect key="frame" x="211" y="6.5" width="143" height="32"/>
                                                     <segments>
                                                         <segment title="Auto"/>
@@ -421,18 +421,17 @@
                                                         <segment title="" image="moon.fill" catalog="system"/>
                                                     </segments>
                                                     <connections>
-                                                        <action selector="modeChanged:" destination="xfH-EW-rvj" eventType="valueChanged" id="1lX-Me-wk2"/>
+                                                        <action selector="segue:" destination="xfH-EW-rvj" eventType="valueChanged" id="tiT-aW-gTn"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="854-hx-eNx" firstAttribute="leading" secondItem="GwF-mV-NnT" secondAttribute="leadingMargin" id="1bG-YQ-O4o"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="854-hx-eNx" secondAttribute="trailing" constant="20" symbolic="YES" id="2Fr-nN-82l"/>
-                                                <constraint firstAttribute="trailing" secondItem="nv3-8g-HdT" secondAttribute="trailing" constant="20" id="5Gw-f5-4dr"/>
-                                                <constraint firstItem="854-hx-eNx" firstAttribute="top" secondItem="GwF-mV-NnT" secondAttribute="topMargin" id="FgQ-5B-K3m"/>
-                                                <constraint firstItem="nv3-8g-HdT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="854-hx-eNx" secondAttribute="trailing" constant="8" symbolic="YES" id="d9X-8w-Z1V"/>
-                                                <constraint firstItem="854-hx-eNx" firstAttribute="centerY" secondItem="GwF-mV-NnT" secondAttribute="centerY" id="dzc-78-0nM"/>
-                                                <constraint firstItem="nv3-8g-HdT" firstAttribute="centerY" secondItem="GwF-mV-NnT" secondAttribute="centerY" id="nzK-sk-sqe"/>
+                                                <constraint firstItem="dD6-v3-0OP" firstAttribute="centerY" secondItem="P8B-8A-yPN" secondAttribute="centerY" id="1vu-l2-qVy"/>
+                                                <constraint firstItem="dD6-v3-0OP" firstAttribute="top" secondItem="P8B-8A-yPN" secondAttribute="topMargin" id="2ef-Ye-2yh"/>
+                                                <constraint firstAttribute="trailing" secondItem="sbk-7u-giw" secondAttribute="trailing" constant="20" id="80K-cp-QQk"/>
+                                                <constraint firstItem="sbk-7u-giw" firstAttribute="centerY" secondItem="P8B-8A-yPN" secondAttribute="centerY" id="Ebu-5L-nIL"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dD6-v3-0OP" secondAttribute="trailing" constant="20" symbolic="YES" id="ZCd-TC-1QF"/>
+                                                <constraint firstItem="dD6-v3-0OP" firstAttribute="leading" secondItem="P8B-8A-yPN" secondAttribute="leadingMargin" id="bol-DO-eSY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -495,7 +494,6 @@
                     <navigationItem key="navigationItem" title="Settings" id="QnB-3S-gFh"/>
                     <connections>
                         <outlet property="TimeAlert" destination="An3-B7-1qP" id="Aqq-df-4Am"/>
-                        <outlet property="darkModeToggle" destination="nv3-8g-HdT" id="6dc-Wr-IXG"/>
                         <outlet property="timeText" destination="IYe-3M-g9L" id="h4H-h8-Yf8"/>
                     </connections>
                 </tableViewController>
