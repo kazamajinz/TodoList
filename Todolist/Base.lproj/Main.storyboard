@@ -421,7 +421,7 @@
                                                         <segment title="" image="moon.fill" catalog="system"/>
                                                     </segments>
                                                     <connections>
-                                                        <action selector="segue:" destination="xfH-EW-rvj" eventType="valueChanged" id="tiT-aW-gTn"/>
+                                                        <action selector="segue:" destination="xfH-EW-rvj" eventType="valueChanged" id="Z3T-6X-dO5"/>
                                                     </connections>
                                                 </segmentedControl>
                                             </subviews>
@@ -494,6 +494,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="QnB-3S-gFh"/>
                     <connections>
                         <outlet property="TimeAlert" destination="An3-B7-1qP" id="Aqq-df-4Am"/>
+                        <outlet property="segMode" destination="sbk-7u-giw" id="F9F-fy-Rpg"/>
                         <outlet property="timeText" destination="IYe-3M-g9L" id="h4H-h8-Yf8"/>
                     </connections>
                 </tableViewController>

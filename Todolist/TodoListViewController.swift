@@ -44,7 +44,7 @@ class TodoListViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         
-    
+        
         
         // [x]TODO: 데이터 불러오기
         todoListViewModel.loadTasks()
@@ -52,6 +52,28 @@ class TodoListViewController: UIViewController {
         
 //        let todo = TodoManager.shared.createTodo(detail: "👍 🚀 Corona 난리", isToday: true)
 //        Storage.saveTodo(todo, fileName: "test.json")
+        
+        
+        let plist = UserDefaults.standard
+        let segMode = plist.integer(forKey: "segMode")
+        
+        if segMode == 0 {
+            //defaults.set(sender.selectedSegmentIndex, forKey: darkMode)
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .unspecified
+            }
+        } else if segMode == 1 {
+            //defaults.set(sender.selectedSegmentIndex, forKey: darkMode)
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .light
+            }
+        } else {
+            //defaults.set(sender.selectedSegmentIndex, forKey: darkMode)
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .dark
+            }
+        }
+        
     }
 
     

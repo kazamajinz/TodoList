@@ -16,7 +16,7 @@ class SettingViewController: UITableViewController {
     
     @IBOutlet weak var timeText: UITextField!
     
-
+    @IBOutlet weak var segMode: UISegmentedControl!
     
     
     let datePicker = UIDatePicker()
@@ -25,6 +25,8 @@ class SettingViewController: UITableViewController {
     let alertOn = "alertOn"
     let dateAlertKey = "dateAlertKey"
     
+  //  let darkMode = "darkMode"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      //   setupView()
@@ -32,9 +34,11 @@ class SettingViewController: UITableViewController {
         let attributes = [NSAttributedString.Key.foregroundColor:UIColor.label, NSAttributedString.Key.font:UIFont(name: "Verdana-bold", size: 25)]
                 self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
         
+        
+        //overrideUserInterfaceStyle = .dark    //다크모드
         /*
         overrideUserInterfaceStyle = .light     //라이트모드
-        overrideUserInterfaceStyle = .dark    //다크모드
+       
          */
         // Do any additional setup after loading the view.
         createDatePicker()
@@ -43,10 +47,32 @@ class SettingViewController: UITableViewController {
            TimeAlert.isOn = isOn as! Bool
             self.setNotification()
         }
+        
+        
+        let plist = UserDefaults.standard
+        segMode.selectedSegmentIndex = plist.integer(forKey: "segMode")
+        
+        if segMode.selectedSegmentIndex == 0 {
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .unspecified
+            }
+        }else if segMode.selectedSegmentIndex == 1 {
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .light
+            }
+        }else{
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .dark
+            }
+        }
+        
+        
  /*
         if let dateAlert = defaults.array(forKey: dateAlertKey) {
             timeText.text = dateAlert as! array
         }
+         
+         
    */
         
         
@@ -134,17 +160,27 @@ class SettingViewController: UITableViewController {
     */
     
     @IBAction func segue(_ sender: UISegmentedControl) {
-        let plist = UserDefaults.standard
         if sender.selectedSegmentIndex == 0 {
-            plist.setValue(nil, forKey: "overrideUserInterfaceStyle")
+            //defaults.set(sender.selectedSegmentIndex, forKey: darkMode)
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .unspecified
+            }
         }else if sender.selectedSegmentIndex == 1 {
-            plist.setValue("Light", forKey: "overrideUserInterfaceStyle")
-            plist.synchronize()
-            let color = plist.string(forKey: "overrideUserInterfaceStyle")
-            print(color!)
+            //defaults.set(sender.selectedSegmentIndex, forKey: darkMode)
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .light
+            }
         }else{
-            plist.setValue("Dark", forKey: "overrideUserInterfaceStyle")
+            //defaults.set(sender.selectedSegmentIndex, forKey: darkMode)
+            UIApplication.shared.windows.forEach { window in
+                window.overrideUserInterfaceStyle = .dark
+            }
         }
+        
+        let plist = UserDefaults.standard
+        let value = sender.selectedSegmentIndex
+        plist.set(value, forKey: "segMode")
+        plist.synchronize()
         
     }
     
