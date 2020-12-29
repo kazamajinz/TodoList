@@ -44,8 +44,6 @@ class TodoListViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         
-        
-        
         // [x]TODO: 데이터 불러오기
         todoListViewModel.loadTasks()
         
@@ -72,6 +70,7 @@ class TodoListViewController: UIViewController {
             UIApplication.shared.windows.forEach { window in
                 window.overrideUserInterfaceStyle = .dark
             }
+            
         }
         
     }
@@ -81,6 +80,11 @@ class TodoListViewController: UIViewController {
         super.viewDidAppear(animated)
 //        let todo = Storage.restoreTodo("test.json")
 //        print("---> restore from disk: \(todo)")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.collectionView.reloadData()
     }
     
     @IBAction func isTodayButtonTapped(_ sender: Any) {
@@ -208,23 +212,24 @@ extension TodoListViewController: UICollectionViewDataSource {
         
         
         
-        cell.contentView.layer.cornerRadius = 4.0
-        cell.contentView.layer.borderWidth = 1.0
-        cell.contentView.layer.borderColor = UIColor.clear.cgColor
-        cell.contentView.layer.masksToBounds = false
-        cell.layer.shadowColor = UIColor.gray.cgColor
-        cell.layer.shadowOffset = CGSize(width:0, height: 1.0)
-        cell.layer.shadowRadius = 4.0
-        cell.layer.shadowOpacity = 1.0
-        cell.layer.masksToBounds = false
-        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
+        if self.traitCollection.userInterfaceStyle == .dark {
+        
+        } else {
+            cell.contentView.layer.cornerRadius = 4.0
+            cell.contentView.layer.borderWidth = 1.0
+            cell.contentView.layer.borderColor = UIColor.clear.cgColor
+            cell.contentView.layer.masksToBounds = false
+            cell.layer.shadowColor = UIColor.gray.cgColor
+            cell.layer.shadowOffset = CGSize(width:0, height: 1.0)
+            cell.layer.shadowRadius = 4.0
+            cell.layer.shadowOpacity = 1.0
+            cell.layer.masksToBounds = false
+            cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
+        }
         
         return cell
     }
     
-   
-   
- 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:

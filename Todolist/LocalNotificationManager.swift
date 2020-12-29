@@ -88,8 +88,8 @@ class LocalNotificationManager {
                 
                 
                 dateComponents.calendar = Calendar.current
-                dateComponents.hour = 21
-                dateComponents.minute = 30
+                dateComponents.hour = 01
+                dateComponents.minute = 58
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
                 let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
                 
