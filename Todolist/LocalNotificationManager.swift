@@ -75,8 +75,8 @@ class LocalNotificationManager {
                     }
                 }
                 */
-                content.sound = .default
-                // content.badge = 1
+                 content.sound = .default
+                 content.badge = 0
                 
                 var dateComponents = DateComponents()
                 
@@ -88,8 +88,13 @@ class LocalNotificationManager {
                 
                 
                 dateComponents.calendar = Calendar.current
-                dateComponents.hour = 01
-                dateComponents.minute = 58
+                
+                let plist = UserDefaults.standard
+                
+                
+                dateComponents.hour = plist.integer(forKey: "hourAlert")
+                dateComponents.minute = plist.integer(forKey: "minuteAlert")
+                
                 let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
                 let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
                 

@@ -31,15 +31,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     // 앱이 실행 도중에 알림 메세지가 도착했을 경우
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-      if notification.request.identifier == "wakeup" {
-        let userInfo = notification.request.content.userInfo
-        print(userInfo["name"]!)
-      }
-      
       // 알림 배너 띄워주기
         completionHandler([.banner, .badge, .sound])
     }
-    
+   
+    /*
+    // 앱 눌렀을때 처음 뷰컨트롤러로 오도록 하기.
+     @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+      completionHandler()
+    }
+    */
     
 
     // MARK: UISceneSession Lifecycle

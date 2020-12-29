@@ -246,6 +246,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="QYO-xA-CFn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="sectionIndexColor" systemColor="labelColor"/>
                         <sections>
                             <tableViewSection headerTitle="APP INFO" id="sVZ-Ec-17J">
                                 <cells>
@@ -377,10 +378,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IYe-3M-g9L">
-                                                    <rect key="frame" x="267" y="5" width="85" height="34"/>
+                                                    <rect key="frame" x="262" y="5" width="90" height="34"/>
                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="85" id="N3P-fw-lWS"/>
+                                                        <constraint firstAttribute="width" constant="90" id="N3P-fw-lWS"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -426,6 +427,7 @@
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="sbk-7u-giw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dD6-v3-0OP" secondAttribute="trailing" constant="8" symbolic="YES" id="1lw-hK-kPE"/>
                                                 <constraint firstItem="dD6-v3-0OP" firstAttribute="centerY" secondItem="P8B-8A-yPN" secondAttribute="centerY" id="1vu-l2-qVy"/>
                                                 <constraint firstItem="dD6-v3-0OP" firstAttribute="top" secondItem="P8B-8A-yPN" secondAttribute="topMargin" id="2ef-Ye-2yh"/>
                                                 <constraint firstAttribute="trailing" secondItem="sbk-7u-giw" secondAttribute="trailing" constant="20" id="80K-cp-QQk"/>
@@ -748,6 +750,9 @@
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="secondarySystemFillColor">

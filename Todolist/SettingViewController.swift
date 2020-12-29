@@ -8,9 +8,6 @@
 import UIKit
 
 class SettingViewController: UITableViewController {
-
-    
-    var isOn = false
     
     @IBOutlet weak var TimeAlert: UISwitch!
     
@@ -23,33 +20,38 @@ class SettingViewController: UITableViewController {
     
     let defaults = UserDefaults.standard
     let alertOn = "alertOn"
-    let dateAlertKey = "dateAlertKey"
-    
-  //  let darkMode = "darkMode"
+    // let dateAlertKey = "dateAlertKey"
+    let hourAlert = "hourAlert"
+    let minuteAlert = "minuteAlert"
+    let timeAlert = "timeAlert"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     //   setupView()
+     
+        
+        self.tableView.rowHeight = 44
+        
+        //   setupView()
+        
+        let plist = UserDefaults.standard
         
         let attributes = [NSAttributedString.Key.foregroundColor:UIColor.label, NSAttributedString.Key.font:UIFont(name: "Verdana-bold", size: 25)]
                 self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
         
+        timeText.text = plist.string(forKey: "timeAlert")
         
-        //overrideUserInterfaceStyle = .dark    //다크모드
-        /*
-        overrideUserInterfaceStyle = .light     //라이트모드
-       
-         */
-        // Do any additional setup after loading the view.
         createDatePicker()
       
+        /*
         if let isOn = defaults.value(forKey: alertOn) {
            TimeAlert.isOn = isOn as! Bool
             self.setNotification()
         }
+        */
         
         
-        let plist = UserDefaults.standard
+        TimeAlert.isOn = plist.bool(forKey: "alertOn")
+        
         segMode.selectedSegmentIndex = plist.integer(forKey: "segMode")
         
         if segMode.selectedSegmentIndex == 0 {
@@ -83,9 +85,15 @@ class SettingViewController: UITableViewController {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
+        
+        
         // bar button
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         toolbar.setItems([doneBtn], animated: true)
+        
+        doneBtn.tintColor = UIColor.label
+        
+        
       //  defaults.set([doneBtn], forKey: dateAlertKey)
         
        // UserDefaults.standard.set([doneBtn], forKey: "dateAlertKey")
@@ -109,29 +117,38 @@ class SettingViewController: UITableViewController {
         
         let hourFormatter = DateFormatter()
         hourFormatter.dateFormat = "HH"
+        
         let minuteFormatter = DateFormatter()
         minuteFormatter.dateFormat = "mm"
+        
         let hourAlert = hourFormatter.string(from: datePicker.date)
         let minuteAlert = minuteFormatter.string(from: datePicker.date)
-        print(hourAlert)
-        print(minuteAlert)
+        let timeAlert = formatter.string(from: datePicker.date)
         
         
-        timeText.text = formatter.string(from: datePicker.date)
+        let plist = UserDefaults.standard
+        plist.set(hourAlert, forKey: "hourAlert")
+        plist.set(minuteAlert, forKey: "minuteAlert")
+        plist.set(timeAlert, forKey: "timeAlert")
+        plist.synchronize()
+        
+        timeText.text = timeAlert
         self.view.endEditing(true)
     }
     
     
     @IBAction func AlertOnOff(_ sender: UISwitch) {
-        defaults.set(sender.isOn, forKey: alertOn)
+       
+        let value = sender.isOn // true면 기혼, false면 미혼
+        
+        let plist = UserDefaults.standard // 기본 저장소 객체를 가져온다.
+        plist.set(value, forKey: "alertOn") // "married"라는 키로 값을 저장한다.
+        plist.synchronize() // 동기화 처리
+        
         if sender.isOn {
-            isOn = true
-           // self.setNotification()
-            
+           self.setNotification()
         } else {
-           
             //초기화값 넣기
-            isOn = false
         }
     }
     func setNotification(){
