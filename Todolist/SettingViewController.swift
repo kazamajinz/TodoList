@@ -125,6 +125,10 @@ class SettingViewController: UITableViewController {
         
     }
     
+    @IBAction func tapBG(_ sender: Any) {
+        timeText.resignFirstResponder()
+    }
+    
     
     @IBAction func AlertOnOff(_ sender: UISwitch) {
        

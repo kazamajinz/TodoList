@@ -380,6 +380,7 @@
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IYe-3M-g9L">
                                                     <rect key="frame" x="262" y="5" width="90" height="34"/>
                                                     <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="N3P-fw-lWS"/>
                                                     </constraints>
@@ -491,6 +492,7 @@
                         <connections>
                             <outlet property="dataSource" destination="xfH-EW-rvj" id="CwJ-ah-BZV"/>
                             <outlet property="delegate" destination="xfH-EW-rvj" id="clK-3I-eDj"/>
+                            <outletCollection property="gestureRecognizers" destination="HbT-vP-n4S" appends="YES" id="bEk-tT-Wpg"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="QnB-3S-gFh"/>
@@ -501,6 +503,11 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FvV-LN-R3y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="HbT-vP-n4S">
+                    <connections>
+                        <action selector="tapBG:" destination="xfH-EW-rvj" id="NV8-ox-fnR"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2586.9565217391305" y="1676.7857142857142"/>
         </scene>
