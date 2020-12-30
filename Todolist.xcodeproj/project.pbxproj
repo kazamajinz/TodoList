@@ -19,6 +19,8 @@
 		9B2830FF25970C4E00F814DE /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2830FE25970C4E00F814DE /* Todo.swift */; };
 		9B28310725970CBC00F814DE /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B28310625970CBC00F814DE /* TodoListViewController.swift */; };
 		9B283121259725D100F814DE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B283120259725D100F814DE /* SettingViewController.swift */; };
+		9BCBD295259C40BD00B149D4 /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBD294259C40BD00B149D4 /* ManualViewController.swift */; };
+		9BCBD29A259C40F700B149D4 /* SupporterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBD299259C40F700B149D4 /* SupporterViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		9B283120259725D100F814DE /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		9BC993302598F68A00526B97 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		9BC9942C2599051700526B97 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		9BCBD294259C40BD00B149D4 /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
+		9BCBD299259C40F700B149D4 /* SupporterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupporterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +138,8 @@
 				9B2830FE25970C4E00F814DE /* Todo.swift */,
 				9B28310625970CBC00F814DE /* TodoListViewController.swift */,
 				9B283120259725D100F814DE /* SettingViewController.swift */,
+				9BCBD294259C40BD00B149D4 /* ManualViewController.swift */,
+				9BCBD299259C40F700B149D4 /* SupporterViewController.swift */,
 			);
 			path = Todolist;
 			sourceTree = "<group>";
@@ -302,6 +308,8 @@
 				9B2830F525970BB800F814DE /* LocalNotificationManager.swift in Sources */,
 				9B2830C425970B4700F814DE /* SceneDelegate.swift in Sources */,
 				9B283121259725D100F814DE /* SettingViewController.swift in Sources */,
+				9BCBD29A259C40F700B149D4 /* SupporterViewController.swift in Sources */,
+				9BCBD295259C40BD00B149D4 /* ManualViewController.swift in Sources */,
 				9B2830FA25970C1B00F814DE /* Storage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
