@@ -41,14 +41,6 @@ class SettingViewController: UITableViewController {
         timeText.text = plist.string(forKey: "timeAlert")
         
         createDatePicker()
-      
-        /*
-        if let isOn = defaults.value(forKey: alertOn) {
-           TimeAlert.isOn = isOn as! Bool
-            self.setNotification()
-        }
-        */
-        
         
         TimeAlert.isOn = plist.bool(forKey: "alertOn")
         
@@ -67,18 +59,7 @@ class SettingViewController: UITableViewController {
                 window.overrideUserInterfaceStyle = .dark
             }
         }
-        
-        
- /*
-        if let dateAlert = defaults.array(forKey: dateAlertKey) {
-            timeText.text = dateAlert as! array
-        }
-         
-         
-   */
-        
-        
-    }
+}
     
     func createDatePicker() {
         // toolbar
@@ -134,6 +115,14 @@ class SettingViewController: UITableViewController {
         
         timeText.text = timeAlert
         self.view.endEditing(true)
+        
+        if plist.bool(forKey: "alertOn") == true {
+            setNotification()
+        }else {
+            let manager = LocalNotificationManager()
+            manager.deleteNotifications()
+        }
+        
     }
     
     
@@ -147,10 +136,13 @@ class SettingViewController: UITableViewController {
         
         if sender.isOn {
            self.setNotification()
+            print(plist.bool(forKey: "alertOn"))
         } else {
-            //초기화값 넣기
+            let manager = LocalNotificationManager()
+            manager.deleteNotifications()
         }
     }
+    
     func setNotification(){
        
         let todoListViewModel = TodoViewModel()
@@ -158,24 +150,17 @@ class SettingViewController: UITableViewController {
         let manager = LocalNotificationManager()
        
         if todayCount == 0 {
+            manager.deleteNotifications()
             manager.addNotification(title: "오늘의 할일을 등록해주세요.")
         } else {
+            manager.deleteNotifications()
             manager.addNotification(title: "오늘의 할일 진행상황 😎")
         }
         
         manager.schedule()
     }
-    
-    /*
-    func setupView() {
-        setupDarkModeToggle()
-    }
-    
-    func setupDarkModeToggle() {
-        darkModeToggle.addTarget(self, action: #selector(darkModeAction), for: .touchUpInside)
-    }
-    */
-    
+
+
     @IBAction func segue(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             //defaults.set(sender.selectedSegmentIndex, forKey: darkMode)
