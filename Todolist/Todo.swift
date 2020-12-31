@@ -47,6 +47,7 @@ class TodoManager {
         // [x] TODO: add로직 추가
         todos.append(todo)
         saveTodo()
+       // print("여기add")
     }
     
     func deleteTodo(_ todo: Todo) {
@@ -56,12 +57,14 @@ class TodoManager {
 //            todos.remove(at: index)
 //        }
         saveTodo()
+       // print("여기delete")
     }
     
     func editTodo(_ todo : Todo) {
         guard let index = todos.firstIndex(of: todo) else { return }
         todos[index].update(isDone: todo.isDone, detail: todo.detail, isToday: !todo.isToday)
         saveTodo()
+        //print("여기edit")
     }
     
     
@@ -70,10 +73,42 @@ class TodoManager {
         guard let index = todos.firstIndex(of: todo) else { return }
         todos[index].update(isDone: todo.isDone, detail: todo.detail, isToday: todo.isToday)
         saveTodo()
+            //print("여기update")
     }
     
     func saveTodo() {
         Storage.store(todos, to: .documents, as: "todos.json")
+        updateNoti()
+    }
+    
+    func updateNoti() {
+        let plist = UserDefaults.standard
+        let manager = LocalNotificationManager()
+        if plist.bool(forKey: "alertOn") == true {
+            manager.deleteNotifications()
+            setNotification()
+            print("updateNoti_1")
+        }else {
+            manager.deleteNotifications()
+            print("updateNoti_2")
+        }
+    }
+    
+    func setNotification(){
+       
+        let todoListViewModel = TodoViewModel()
+        let todayCount = todoListViewModel.todayTodos.count
+        let manager = LocalNotificationManager()
+       
+        if todayCount == 0 {
+            manager.deleteNotifications()
+            manager.addNotification(title: "오늘의 할일을 등록해주세요.")
+        } else {
+            manager.deleteNotifications()
+            manager.addNotification(title: "오늘의 할일 진행상황 😎")
+        }
+        manager.deleteNotifications()
+        manager.schedule()
     }
     
     func retrieveTodo() {

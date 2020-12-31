@@ -36,7 +36,8 @@ class LocalNotificationManager {
         let center = UNUserNotificationCenter.current()
         center.removeAllDeliveredNotifications()    // to remove all delivered notifications
         center.removeAllPendingNotificationRequests()   // to remove all pending notifications
-       // UIApplication.shared.applicationIconBadgeNumber = 0 // to clear the icon notification badge
+       
+        // UIApplication.shared.applicationIconBadgeNumber = 0 // to clear the icon notification badge
     }
     
     func schedule() -> Void {
@@ -69,9 +70,9 @@ class LocalNotificationManager {
                 if todayCount == 0 {
                 } else {
                     if todayTodosNotDone == 0 {
-                       content.body = "오늘의 할일을 모두 완수하였습니다.\n" + "내일도 오늘처럼 모두 완수해주세요.🤗"
+                       content.body = "오늘의 할일을 모두 완수하였습니다.🤗"
                     } else {
-                       content.body = "오늘의 할일이 \(todayTodosNotDone)/\(todayCount)만큼 진행되었습니다.\n" + "나머지 오늘의 할일 \(todayTodosNotDone)개를 완수해주세요😅."
+                       content.body = "아직 할일이 \(todayTodosNotDone)개 남았습니다.😅."
                     }
                 }
               

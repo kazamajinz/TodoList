@@ -80,12 +80,16 @@ class TodoListViewController: UIViewController {
         super.viewDidAppear(animated)
 //        let todo = Storage.restoreTodo("test.json")
 //        print("---> restore from disk: \(todo)")
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.collectionView.reloadData()
+        
+        
     }
+    
     
     @IBAction func isTodayButtonTapped(_ sender: Any) {
         // [x] TODO: 투데이 버튼 토글 작업
@@ -104,6 +108,7 @@ class TodoListViewController: UIViewController {
         collectionView.reloadData()
         inputTextField.text = ""
         isTodayButton.isSelected = false
+        
         
         
     }
@@ -132,8 +137,6 @@ extension TodoListViewController {
             inputViewBottom.constant = 0
             collectionViewBottom.constant = 60
         }
-        
-        print("---> Keyboard End Frame: \(keyboardFrame)")
     }
 }
 
@@ -258,7 +261,7 @@ extension TodoListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // [x] TODO: 사이즈 계산하기
         let width: CGFloat = collectionView.bounds.width * 0.9
-        let height: CGFloat = 50
+        let height: CGFloat = 45
         return CGSize(width: width, height: height)
     }
     
@@ -286,11 +289,14 @@ class TodoListCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         reset()
+        
+        
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         reset()
+        
     }
     
     func updateUI(todo: Todo) {
@@ -302,6 +308,8 @@ class TodoListCell: UICollectionViewCell {
         tradeButton.isSelected = todo.isToday
         tradeButton.isHidden = todo.isDone == true
         showStrikeThrough(todo.isDone)
+        
+        
     }
     
     private func showStrikeThrough(_ show: Bool) {
@@ -335,12 +343,8 @@ class TodoListCell: UICollectionViewCell {
         tradeButton.isHidden = !isDone
         print(!isDone)
         doneButtonTapHandler?(isDone)
-    
+        
     }
-    
-    
-
-    
     
     @IBAction func tradeButtonTapped(_ sender: Any) {
         

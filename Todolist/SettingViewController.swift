@@ -116,12 +116,7 @@ class SettingViewController: UITableViewController {
         timeText.text = timeAlert
         self.view.endEditing(true)
         
-        if plist.bool(forKey: "alertOn") == true {
-            setNotification()
-        }else {
-            let manager = LocalNotificationManager()
-            manager.deleteNotifications()
-        }
+        updateNoti()
         
     }
     
@@ -138,11 +133,16 @@ class SettingViewController: UITableViewController {
         plist.set(value, forKey: "alertOn") // "married"라는 키로 값을 저장한다.
         plist.synchronize() // 동기화 처리
         
-        if sender.isOn {
-           self.setNotification()
-            print(plist.bool(forKey: "alertOn"))
-        } else {
-            let manager = LocalNotificationManager()
+        updateNoti()
+    }
+    
+    func updateNoti() {
+        let plist = UserDefaults.standard
+        let manager = LocalNotificationManager()
+        if plist.bool(forKey: "alertOn") == true {
+            manager.deleteNotifications()
+            setNotification()
+        }else {
             manager.deleteNotifications()
         }
     }
@@ -167,17 +167,14 @@ class SettingViewController: UITableViewController {
 
     @IBAction func segue(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
-            //defaults.set(sender.selectedSegmentIndex, forKey: darkMode)
             UIApplication.shared.windows.forEach { window in
                 window.overrideUserInterfaceStyle = .unspecified
             }
         }else if sender.selectedSegmentIndex == 1 {
-            //defaults.set(sender.selectedSegmentIndex, forKey: darkMode)
             UIApplication.shared.windows.forEach { window in
                 window.overrideUserInterfaceStyle = .light
             }
         }else{
-            //defaults.set(sender.selectedSegmentIndex, forKey: darkMode)
             UIApplication.shared.windows.forEach { window in
                 window.overrideUserInterfaceStyle = .dark
             }
@@ -190,33 +187,5 @@ class SettingViewController: UITableViewController {
         
     }
     
-    
-    /*
-    @objc func darkModeAction() {
-        //let plist = UserDefaults.standard
-        switch darkModeToggle.selectedSegmentIndex {
-            
-        case 0: print("0")
-            //plist.setValue(nil, forKey: "overrideUserInterfaceStyle")
-            
-        case 1: print("1")
-            //plist.setValue("Light", forKey: "Appearance")
-                
-        case 2: print("2")
-            //plist.setValue("Dark", forKey: "Appearance")
-                
-            default: return
-        }
-    }
-    */
-    /*
-    func saveAllData() {
-        UserDefaults.standard.set("hohyeon", forKey: "userID")
-    }
-    
-    func loadAllData() {
-      
-    }
-    */
 }
 
