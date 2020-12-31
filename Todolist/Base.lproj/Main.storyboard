@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--TodoList-->
+        <!--DailyQuest-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="TodoListViewController" customModule="Todolist" customModuleProvider="target" sceneMemberID="viewController">
@@ -220,7 +220,7 @@
                             <outletCollection property="gestureRecognizers" destination="bpM-DI-juc" appends="YES" id="2sZ-PA-Ha0"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="TodoList" id="twP-rR-dUU"/>
+                    <navigationItem key="navigationItem" title="DailyQuest" id="twP-rR-dUU"/>
                     <connections>
                         <outlet property="addButton" destination="il1-22-qdG" id="mkV-JV-zjV"/>
                         <outlet property="collectionView" destination="Dac-Tr-eM7" id="MeX-33-IFU"/>
@@ -263,6 +263,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBI-dm-Qiv">
+                                                    <rect key="frame" x="0.0" y="-0.5" width="343" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <segue destination="Ncj-mJ-kiw" kind="show" id="RCH-H7-8TI"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="BMz-hN-TiF" firstAttribute="leading" secondItem="fND-7d-Y5y" secondAttribute="leadingMargin" id="eS5-kd-68i"/>
@@ -271,9 +278,6 @@
                                                 <constraint firstItem="BMz-hN-TiF" firstAttribute="centerY" secondItem="fND-7d-Y5y" secondAttribute="centerY" id="jdK-qF-b96"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="Ncj-mJ-kiw" kind="show" id="3N8-kW-Y9Z"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="IcF-HF-v8U">
                                         <rect key="frame" x="20" y="99" width="374" height="43.5"/>
@@ -288,6 +292,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQe-AZ-0j9">
+                                                    <rect key="frame" x="0.0" y="-1" width="343" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <segue destination="BQT-Jj-F2n" kind="show" id="8Ru-HW-nlk"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="2aG-Dd-1qt" firstAttribute="centerY" secondItem="tOS-aU-dhn" secondAttribute="centerY" id="aPf-AR-Zks"/>
@@ -296,9 +307,6 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="2aG-Dd-1qt" secondAttribute="trailing" constant="20" symbolic="YES" id="prT-xh-pgs"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="BQT-Jj-F2n" kind="show" id="w3a-ir-7xg"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="TB5-pn-y96">
                                         <rect key="frame" x="20" y="142.5" width="374" height="44"/>
@@ -729,15 +737,36 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeManual" id="HBp-vi-vwu">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeManual" id="Gf0-pY-mh8">
                                         <rect key="frame" x="20" y="99" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Gf0-pY-mh8" id="xf7-PC-piJ">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꼼꼼한재은씨(참고서적)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Azn-iI-9KD">
+                                                    <rect key="frame" x="30" y="11.5" width="160" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Azn-iI-9KD" secondAttribute="trailing" constant="20" symbolic="YES" id="OQQ-Rb-P7i"/>
+                                                <constraint firstItem="Azn-iI-9KD" firstAttribute="leading" secondItem="xf7-PC-piJ" secondAttribute="leading" constant="30" id="dOe-08-HMY"/>
+                                                <constraint firstItem="Azn-iI-9KD" firstAttribute="centerY" secondItem="xf7-PC-piJ" secondAttribute="centerY" id="ydR-8J-kbr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeManual" id="HBp-vi-vwu">
+                                        <rect key="frame" x="20" y="142.5" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HBp-vi-vwu" id="iF7-ZF-Jr6">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="권아영" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWl-ZO-anS">
-                                                    <rect key="frame" x="30" y="11.5" width="44.5" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="권아영, 윤희선" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EWl-ZO-anS">
+                                                    <rect key="frame" x="30" y="11.5" width="97.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -751,7 +780,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TimeManual" id="OZz-uA-Qu5">
-                                        <rect key="frame" x="20" y="142.5" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="186" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OZz-uA-Qu5" id="dMI-Hd-Fjt">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>

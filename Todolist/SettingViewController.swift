@@ -162,6 +162,13 @@ class SettingViewController: UITableViewController {
         }
         
         manager.schedule()
+        
+        let todayDetail = todoListViewModel.todayTodos
+        //print(todayDetail)
+        for id in todayDetail {
+            print("id는 \(id) 입니다")
+        }
+        
     }
 
 
