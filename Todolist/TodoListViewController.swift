@@ -32,13 +32,7 @@ class TodoListViewController: UIViewController {
         
         let attributes = [NSAttributedString.Key.foregroundColor:UIColor.label, NSAttributedString.Key.font:UIFont(name: "Verdana-bold", size: 25)]
                 self.navigationController?.navigationBar.titleTextAttributes = attributes as [NSAttributedString.Key : Any]
-        /*
-        let navbarTitle = UILabel()
-            navbarTitle.text = "My nav title"
-            navbarTitle.minimumScaleFactor = 0.5
-            navbarTitle.adjustsFontSizeToFitWidth = true
-            navigationItem.titleView = navbarTitle
-        */
+     
         // [x] TODO: 키보드 디텍션
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -47,9 +41,6 @@ class TodoListViewController: UIViewController {
         // [x]TODO: 데이터 불러오기
         todoListViewModel.loadTasks()
         
-        
-//        let todo = TodoManager.shared.createTodo(detail: "👍 🚀 Corona 난리", isToday: true)
-//        Storage.saveTodo(todo, fileName: "test.json")
         
         
         let plist = UserDefaults.standard
@@ -78,8 +69,6 @@ class TodoListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        let todo = Storage.restoreTodo("test.json")
-//        print("---> restore from disk: \(todo)")
         
     }
     

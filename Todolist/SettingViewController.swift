@@ -6,8 +6,20 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
-class SettingViewController: UITableViewController {
+class SettingViewController: UITableViewController, GADRewardedAdDelegate{
+    
+    /// Is an ad being loaded.
+    var adRequestInProgress = false
+
+    /// The rewarded video ad.
+    var rewardedAd: GADRewardedAd?
+    
+    
+    
+    
+    
     
     @IBOutlet weak var TimeAlert: UISwitch!
     
@@ -25,9 +37,19 @@ class SettingViewController: UITableViewController {
     let minuteAlert = "minuteAlert"
     let timeAlert = "timeAlert"
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-8496395555121734/4339892030")
+        rewardedAd?.load(GADRequest())
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-     
+        
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-8496395555121734/4339892030")
+        rewardedAd?.load(GADRequest())
         
         self.tableView.rowHeight = 44
         
@@ -59,7 +81,7 @@ class SettingViewController: UITableViewController {
                 window.overrideUserInterfaceStyle = .dark
             }
         }
-}
+    }
     
     func createDatePicker() {
         // toolbar
@@ -162,14 +184,8 @@ class SettingViewController: UITableViewController {
         }
         
         manager.schedule()
-        
-        let todayDetail = todoListViewModel.todayTodos
-        //print(todayDetail)
-        for id in todayDetail {
-            print("id는 \(id) 입니다")
-        }
-        
     }
+    
 
 
     @IBAction func segue(_ sender: UISegmentedControl) {
@@ -194,5 +210,31 @@ class SettingViewController: UITableViewController {
         
     }
     
+    @IBAction func adClick(_ sender: Any) {
+       
+        rewardedAd?.present(fromRootViewController: self, delegate: self)
+          rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-8496395555121734/4339892030")
+          rewardedAd?.load(GADRequest())
+    }
+    
+    
+    @IBAction func review(_ sender: Any) {
+        let appleID = "1546963564"
+        let url = "https://itunes.apple.com/app/id\(appleID)?action=write-review"
+        if let path = URL(string: url) {
+                UIApplication.shared.open(path, options: [:], completionHandler: nil)
+        }
+    }
+    
+    // MARK: GADRewardedAdDelegate
+    func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
+    }
+
+    func rewardedAdDidPresent(_ rewardedAd: GADRewardedAd) {
+    }
+
+    func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
+    }
+
 }
 

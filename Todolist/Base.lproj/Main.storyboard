@@ -463,6 +463,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nzs-p2-51r">
+                                                    <rect key="frame" x="15" y="-1" width="343" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="adClick:" destination="xfH-EW-rvj" eventType="touchUpInside" id="Rhp-rd-N8q"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oqv-0j-UfV" secondAttribute="trailing" constant="20" symbolic="YES" id="5CE-69-czm"/>
@@ -485,6 +492,13 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukP-dj-AL7">
+                                                    <rect key="frame" x="15" y="-0.5" width="343" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="review:" destination="xfH-EW-rvj" eventType="touchUpInside" id="LL6-jP-Hh5"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Ntp-87-E14" firstAttribute="leading" secondItem="gmU-3H-sC1" secondAttribute="leadingMargin" id="IZd-7T-w9k"/>

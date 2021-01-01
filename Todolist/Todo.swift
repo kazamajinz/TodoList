@@ -87,10 +87,10 @@ class TodoManager {
         if plist.bool(forKey: "alertOn") == true {
             manager.deleteNotifications()
             setNotification()
-            print("updateNoti_1")
+            //print("updateNoti_1")
         }else {
             manager.deleteNotifications()
-            print("updateNoti_2")
+            //print("updateNoti_2")
         }
     }
     

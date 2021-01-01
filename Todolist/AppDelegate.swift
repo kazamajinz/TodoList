@@ -7,7 +7,7 @@
 
 import UIKit
 import UserNotifications
-
+import GoogleMobileAds
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
           let setting = UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
           application.registerUserNotificationSettings(setting)
         }
+        GADMobileAds.sharedInstance().start(completionHandler: nil)
         return true
     }
     

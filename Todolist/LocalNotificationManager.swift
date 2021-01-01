@@ -73,7 +73,7 @@ class LocalNotificationManager {
                     if todayTodosNotDone == 0 {
                        content.body = "오늘의 할일을 모두 완수하였습니다.🤗"
                     } else {
-                       content.body = "아직 할일이 \(todayTodosNotDone)개 남았습니다.😅 \n" + "123"
+                       content.body = "아직 할일이 \(todayTodosNotDone)개 남았습니다.😅"
                     }
                 }
               
