@@ -286,8 +286,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supporters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aG-Dd-1qt">
-                                                    <rect key="frame" x="20" y="11" width="85.5" height="22"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2aG-Dd-1qt">
+                                                    <rect key="frame" x="20" y="11" width="75" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -719,7 +719,7 @@
             </objects>
             <point key="canvasLocation" x="2303" y="2497"/>
         </scene>
-        <!--Supporters-->
+        <!--Thanks to-->
         <scene sceneID="U6L-1H-dkO">
             <objects>
                 <tableViewController id="BQT-Jj-F2n" customClass="ManualViewController" customModule="Todolist" customModuleProvider="target" sceneMemberID="viewController">
@@ -822,7 +822,7 @@
                             <outlet property="delegate" destination="BQT-Jj-F2n" id="6y4-VS-zz3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Supporters" id="FF7-yZ-QGV"/>
+                    <navigationItem key="navigationItem" title="Thanks to" id="FF7-yZ-QGV"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2V-vg-ICp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
