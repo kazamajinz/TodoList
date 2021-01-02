@@ -322,7 +322,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="exP-dv-bbn">
-                                                    <rect key="frame" x="332" y="11.5" width="22" height="21"/>
+                                                    <rect key="frame" x="332.5" y="11.5" width="21.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -520,6 +520,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="QnB-3S-gFh"/>
                     <connections>
                         <outlet property="TimeAlert" destination="An3-B7-1qP" id="Aqq-df-4Am"/>
+                        <outlet property="Version" destination="exP-dv-bbn" id="E29-qs-Qmp"/>
                         <outlet property="segMode" destination="sbk-7u-giw" id="F9F-fy-Rpg"/>
                         <outlet property="timeText" destination="IYe-3M-g9L" id="h4H-h8-Yf8"/>
                     </connections>

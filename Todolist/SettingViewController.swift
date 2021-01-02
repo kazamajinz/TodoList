@@ -19,7 +19,7 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     
     
     
-    
+    @IBOutlet weak var Version: UILabel!
     
     @IBOutlet weak var TimeAlert: UISwitch!
     
@@ -81,6 +81,10 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
                 window.overrideUserInterfaceStyle = .dark
             }
         }
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        
+        Version.text = appVersion
+        
     }
     
     func createDatePicker() {
