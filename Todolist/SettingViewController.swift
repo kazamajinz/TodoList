@@ -17,6 +17,14 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     var rewardedAd: GADRewardedAd?
     
     
+    @IBOutlet weak var ManualLb: UILabel!
+    @IBOutlet weak var ThanksLb: UILabel!
+    @IBOutlet weak var VersionLb: UILabel!
+    @IBOutlet weak var TimeAletLb: UILabel!
+    @IBOutlet weak var TimeSelectLb: UILabel!
+    @IBOutlet weak var DarkModeLb: UILabel!
+    @IBOutlet weak var LanguageLb: UILabel!
+    
     
     
     @IBOutlet weak var Version: UILabel!
@@ -27,6 +35,7 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     
     @IBOutlet weak var segMode: UISegmentedControl!
     
+    @IBOutlet weak var Language: UISwitch!
     
     let datePicker = UIDatePicker()
     
@@ -65,6 +74,11 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
         createDatePicker()
         
         TimeAlert.isOn = plist.bool(forKey: "alertOn")
+        
+        Language.isOn = plist.bool(forKey: "KorOn")
+        
+        updateKor()
+        
         
         segMode.selectedSegmentIndex = plist.integer(forKey: "segMode")
         
@@ -189,8 +203,6 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
         
         manager.schedule()
     }
-    
-
 
     @IBAction func segue(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
@@ -213,6 +225,41 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
         plist.synchronize()
         
     }
+    
+    
+    
+    @IBAction func LanguageOnOff(_ sender: UISwitch) {
+        let value = sender.isOn
+        let plist = UserDefaults.standard
+        plist.set(value, forKey: "KorOn")
+        plist.synchronize() // 동기화 처리
+        
+        updateKor()
+        
+    }
+    
+    func updateKor() {
+        let plist = UserDefaults.standard
+        if plist.bool(forKey: "KorOn") == true {
+            ManualLb.text = "설명서"
+            ThanksLb.text = "감사인사"
+            VersionLb.text = "앱 버전"
+            TimeAletLb.text = "시간알림"
+            TimeSelectLb.text = "시간설정"
+            DarkModeLb.text = "다크모드"
+            LanguageLb.text = "영어 -> 한국어"
+        }else {
+            ManualLb.text = "Manuals"
+            ThanksLb.text = "Thanks to"
+            VersionLb.text = "App Version"
+            TimeAletLb.text = "TimeAlert"
+            TimeSelectLb.text = "TimeSelect"
+            DarkModeLb.text = "DarkMode"
+            LanguageLb.text = "Eng -> Kor"
+        }
+    }
+    
+
     
     @IBAction func adClick(_ sender: Any) {
        

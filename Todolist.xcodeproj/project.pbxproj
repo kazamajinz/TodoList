@@ -104,6 +104,8 @@
 		9B80389825A0075800439B14 /* DQWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = DQWidget.intentdefinition; sourceTree = "<group>"; };
 		9B80389925A0075B00439B14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B80389B25A0075B00439B14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9B95D53225A2C31E00BC7321 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		9B95D53325A2C31E00BC7321 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		9BC993302598F68A00526B97 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		9BC9942C2599051700526B97 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		9BCBD294259C40BD00B149D4 /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,8 @@
 		9B80389525A0075800439B14 /* DQWidget */ = {
 			isa = PBXGroup;
 			children = (
+				9B95D53325A2C31E00BC7321 /* Storage.swift */,
+				9B95D53225A2C31E00BC7321 /* Todo.swift */,
 				9B80389625A0075800439B14 /* DQWidget.swift */,
 				9B80389825A0075800439B14 /* DQWidget.intentdefinition */,
 				9B80389925A0075B00439B14 /* Assets.xcassets */,

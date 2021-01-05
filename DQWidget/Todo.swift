@@ -126,20 +126,9 @@ class TodoViewModel {
         case upcoming
         
         var title: String {
-            let plist = UserDefaults.standard
             switch self {
-            case .today:
-                if plist.bool(forKey: "KorOn") == true {
-                    return "오늘의 할일"
-                }else {
-                    return "Today"
-                }
-            default:
-                if plist.bool(forKey: "KorOn") == true {
-                    return "다음에 할일"
-                }else {
-                    return "Upcoming"
-                }
+            case .today: return "Today"
+            default: return "Upcoming"
             }
         }
     }

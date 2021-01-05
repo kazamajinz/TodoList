@@ -10,6 +10,9 @@ import UIKit
 
 class TodoListViewController: UIViewController {
     
+    @IBOutlet weak var InputTextFieldLb: UITextField!
+    @IBOutlet weak var TodayLb: UIButton!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var inputViewBottom: NSLayoutConstraint!
     @IBOutlet var collectionViewBottom: NSLayoutConstraint!
@@ -40,8 +43,6 @@ class TodoListViewController: UIViewController {
         
         // [x]TODO: 데이터 불러오기
         todoListViewModel.loadTasks()
-        
-        
         
         let plist = UserDefaults.standard
         let segMode = plist.integer(forKey: "segMode")
@@ -76,6 +77,15 @@ class TodoListViewController: UIViewController {
         super.viewWillAppear(animated)
         self.collectionView.reloadData()
         
+        let plist = UserDefaults.standard
+        if plist.bool(forKey: "KorOn") == true {
+            InputTextFieldLb.placeholder = "오늘의 할일은?"
+            TodayLb.setTitle("오늘", for: TodayLb.state)
+        }else {
+            InputTextFieldLb.placeholder = "I want to..."
+            //TodayLb.titleLabel?.text = "today"
+            TodayLb.setTitle("today", for: TodayLb.state)
+        }
         
     }
     

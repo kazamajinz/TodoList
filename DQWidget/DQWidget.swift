@@ -2,31 +2,31 @@
 //  DQWidget.swift
 //  DQWidget
 //
-//  Created by 이정환 on 2021/01/02.
+//  Created by 이정환 on 2021/01/03.
 //
 
 import WidgetKit
 import SwiftUI
-import Intents
+import UIKit
 
-struct Provider: IntentTimelineProvider {
+struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationIntent())
+        SimpleEntry(date: Date())
     }
 
-    func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-        let entry = SimpleEntry(date: Date(), configuration: configuration)
+    func getSnapshot(in context: Context, completion: @escaping (SimpleEntry) -> ()) {
+        let entry = SimpleEntry(date: Date())
         completion(entry)
     }
 
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
         var entries: [SimpleEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
             let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
+            let entry = SimpleEntry(date: entryDate)
             entries.append(entry)
         }
 
@@ -37,7 +37,7 @@ struct Provider: IntentTimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
-    let configuration: ConfigurationIntent
+    
 }
 
 struct DQWidgetEntryView : View {
@@ -45,25 +45,28 @@ struct DQWidgetEntryView : View {
 
     var body: some View {
         Text(entry.date, style: .time)
+        
+        
     }
 }
 
 @main
 struct DQWidget: Widget {
     let kind: String = "DQWidget"
-
+    
     var body: some WidgetConfiguration {
-        IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
+        StaticConfiguration(kind: kind, provider: Provider()) { entry in
             DQWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("DQ Widget")
+        .description("오늘의 할일을 표시합니다.")
+        .supportedFamilies([.systemMedium])
     }
 }
 
 struct DQWidget_Previews: PreviewProvider {
     static var previews: some View {
-        DQWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+        DQWidgetEntryView(entry: SimpleEntry(date: Date()))
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
     }
 }
