@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 // TODO: Codable과 Equatable 추가
 struct Todo: Codable, Equatable {
     let id: Int
@@ -16,14 +15,12 @@ struct Todo: Codable, Equatable {
     var isToday: Bool
     
     mutating func update(isDone: Bool, detail: String, isToday: Bool) {
-        // [x] TODO: update 로직 추가
         self.isDone = isDone
         self.detail = detail
         self.isToday = isToday
     }
     
     static func == (lhs: Self, rhs: Self) -> Bool {
-        // [x]TODO: 동등 조건 추가
         return lhs.id == rhs.id
     }
 }
@@ -37,43 +34,35 @@ class TodoManager {
     var todos: [Todo] = []
     
     func createTodo(detail: String, isToday: Bool) -> Todo {
-        // [x] TODO: create로직 추가
         let nextId = TodoManager.lastId + 1
         TodoManager.lastId = nextId
         return Todo(id: nextId, isDone: false, detail: detail, isToday: isToday)
     }
     
     func addTodo(_ todo: Todo) {
-        // [x] TODO: add로직 추가
         todos.append(todo)
         saveTodo()
-       // print("여기add")
     }
     
     func deleteTodo(_ todo: Todo) {
-        // [x] TODO: delete 로직 추가
         todos = todos.filter { $0.id != todo.id }
 //        if let index = todos.firstIndex(of: todo) {
 //            todos.remove(at: index)
 //        }
         saveTodo()
-       // print("여기delete")
     }
     
     func editTodo(_ todo : Todo) {
         guard let index = todos.firstIndex(of: todo) else { return }
         todos[index].update(isDone: todo.isDone, detail: todo.detail, isToday: !todo.isToday)
         saveTodo()
-        //print("여기edit")
     }
     
     
     func updateTodo(_ todo: Todo) {
-        // [x] TODO: updatee 로직 추가
         guard let index = todos.firstIndex(of: todo) else { return }
         todos[index].update(isDone: todo.isDone, detail: todo.detail, isToday: todo.isToday)
         saveTodo()
-            //print("여기update")
     }
     
     func saveTodo() {
@@ -87,15 +76,12 @@ class TodoManager {
         if plist.bool(forKey: "alertOn") == true {
             manager.deleteNotifications()
             setNotification()
-            //print("updateNoti_1")
         }else {
             manager.deleteNotifications()
-            //print("updateNoti_2")
         }
     }
     
     func setNotification(){
-       
         let todoListViewModel = TodoViewModel()
         let todayCount = todoListViewModel.todayTodos.count
         let manager = LocalNotificationManager()
@@ -113,7 +99,6 @@ class TodoManager {
     
     func retrieveTodo() {
         todos = Storage.retrive("todos.json", from: .documents, as: [Todo].self) ?? []
-        
         let lastId = todos.last?.id ?? 0
         TodoManager.lastId = lastId
     }

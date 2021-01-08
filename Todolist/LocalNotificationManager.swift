@@ -45,7 +45,6 @@ import UserNotifications
                   break
             }
         }
-            
     }
         
     func scheduleNotifications() -> Void {
