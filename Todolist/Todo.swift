@@ -162,7 +162,6 @@ class TodoViewModel {
         return todos.filter {$0.isToday == true && $0.isDone == false}
     }
     
-    
     var numOfSection: Int {
         return Section.allCases.count
     }

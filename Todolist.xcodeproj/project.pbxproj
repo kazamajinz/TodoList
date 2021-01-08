@@ -201,13 +201,12 @@
 				9B2830CA25970B4A00F814DE /* Assets.xcassets */,
 				9B2830CC25970B4B00F814DE /* LaunchScreen.storyboard */,
 				9B2830CF25970B4B00F814DE /* Info.plist */,
-				9B2830F425970BB800F814DE /* LocalNotificationManager.swift */,
 				9B2830F925970C1B00F814DE /* Storage.swift */,
 				9B2830FE25970C4E00F814DE /* Todo.swift */,
 				9B28310625970CBC00F814DE /* TodoListViewController.swift */,
 				9B283120259725D100F814DE /* SettingViewController.swift */,
-				9BCBD294259C40BD00B149D4 /* ManualViewController.swift */,
-				9BCBD299259C40F700B149D4 /* SupporterViewController.swift */,
+				9B2830F425970BB800F814DE /* LocalNotificationManager.swift */,
+				9BCD564525A8C07900D3CF77 /* Settings */,
 			);
 			path = Todolist;
 			sourceTree = "<group>";
@@ -257,6 +256,15 @@
 				5E9DCE83A478293D3373CF02 /* Pods_TodolistTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BCD564525A8C07900D3CF77 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9BCBD294259C40BD00B149D4 /* ManualViewController.swift */,
+				9BCBD299259C40F700B149D4 /* SupporterViewController.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
