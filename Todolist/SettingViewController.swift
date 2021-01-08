@@ -49,7 +49,7 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/5224354917")
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-8496395555121734/4339892030")
         rewardedAd?.load(GADRequest())
         
     }
@@ -57,7 +57,7 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/5224354917")
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-8496395555121734/4339892030")
         rewardedAd?.load(GADRequest())
         
         self.tableView.rowHeight = 44
@@ -264,7 +264,7 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     @IBAction func adClick(_ sender: Any) {
        
         rewardedAd?.present(fromRootViewController: self, delegate: self)
-          rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/5224354917")
+          rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-8496395555121734/4339892030")
           rewardedAd?.load(GADRequest())
     }
     
