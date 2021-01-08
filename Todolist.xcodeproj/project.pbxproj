@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7E74AC319639618D46AF8148 /* Pods_Todolist_TodolistUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03A812E58EDE361433E30E17 /* Pods_Todolist_TodolistUITests.framework */; };
 		956109323B148CE4F43C4500 /* Pods_TodolistTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9DCE83A478293D3373CF02 /* Pods_TodolistTests.framework */; };
+		9B02A85D25A57D6400BB9401 /* TodoFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B02A85C25A57D6400BB9401 /* TodoFetch.swift */; };
+		9B02A86725A57DB000BB9401 /* StorageFetch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B02A86625A57DB000BB9401 /* StorageFetch.swift */; };
 		9B2830C225970B4700F814DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2830C125970B4700F814DE /* AppDelegate.swift */; };
 		9B2830C425970B4700F814DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2830C325970B4700F814DE /* SceneDelegate.swift */; };
 		9B2830C925970B4700F814DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B2830C725970B4700F814DE /* Main.storyboard */; };
@@ -77,6 +79,8 @@
 		44FA3EEA32A33592FAB9074F /* Pods-Todolist-TodolistUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Todolist-TodolistUITests.release.xcconfig"; path = "Target Support Files/Pods-Todolist-TodolistUITests/Pods-Todolist-TodolistUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5E9DCE83A478293D3373CF02 /* Pods_TodolistTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodolistTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		618D8C19324AC8527012472E /* Pods_Todolist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Todolist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B02A85C25A57D6400BB9401 /* TodoFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoFetch.swift; sourceTree = "<group>"; };
+		9B02A86625A57DB000BB9401 /* StorageFetch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFetch.swift; sourceTree = "<group>"; };
 		9B2830BE25970B4700F814DE /* Todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Todolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B2830C125970B4700F814DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B2830C325970B4700F814DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,8 +108,6 @@
 		9B80389825A0075800439B14 /* DQWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = DQWidget.intentdefinition; sourceTree = "<group>"; };
 		9B80389925A0075B00439B14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B80389B25A0075B00439B14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9B95D53225A2C31E00BC7321 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
-		9B95D53325A2C31E00BC7321 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		9BC993302598F68A00526B97 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		9BC9942C2599051700526B97 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		9BCBD294259C40BD00B149D4 /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
@@ -231,12 +233,12 @@
 		9B80389525A0075800439B14 /* DQWidget */ = {
 			isa = PBXGroup;
 			children = (
-				9B95D53325A2C31E00BC7321 /* Storage.swift */,
-				9B95D53225A2C31E00BC7321 /* Todo.swift */,
 				9B80389625A0075800439B14 /* DQWidget.swift */,
 				9B80389825A0075800439B14 /* DQWidget.intentdefinition */,
 				9B80389925A0075B00439B14 /* Assets.xcassets */,
 				9B80389B25A0075B00439B14 /* Info.plist */,
+				9B02A85C25A57D6400BB9401 /* TodoFetch.swift */,
+				9B02A86625A57DB000BB9401 /* StorageFetch.swift */,
 			);
 			path = DQWidget;
 			sourceTree = "<group>";
@@ -559,7 +561,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B02A86725A57DB000BB9401 /* StorageFetch.swift in Sources */,
 				9B80389725A0075800439B14 /* DQWidget.swift in Sources */,
+				9B02A85D25A57D6400BB9401 /* TodoFetch.swift in Sources */,
 				9B80389C25A0075B00439B14 /* DQWidget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

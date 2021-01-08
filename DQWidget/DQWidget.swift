@@ -37,6 +37,7 @@ struct Provider: TimelineProvider {
 
 struct SimpleEntry: TimelineEntry {
     let date: Date
+    let todoListViewModel = TodoViewModel()
     
 }
 
@@ -45,8 +46,6 @@ struct DQWidgetEntryView : View {
 
     var body: some View {
         Text(entry.date, style: .time)
-        
-        
     }
 }
 

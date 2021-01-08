@@ -1,12 +1,11 @@
 //
-//  Todo.swift
-//  Todolist
+//  TodoFetch.swift
+//  DQWidgetExtension
 //
-//  Created by 이정환 on 2020/12/26.
+//  Created by 이정환 on 2021/01/06.
 //
 
 import UIKit
-
 
 // TODO: Codable과 Equatable 추가
 struct Todo: Codable, Equatable {
@@ -78,37 +77,6 @@ class TodoManager {
     
     func saveTodo() {
         Storage.store(todos, to: .documents, as: "todos.json")
-        updateNoti()
-    }
-    
-    func updateNoti() {
-        let plist = UserDefaults.standard
-        let manager = LocalNotificationManager()
-        if plist.bool(forKey: "alertOn") == true {
-            manager.deleteNotifications()
-            setNotification()
-            //print("updateNoti_1")
-        }else {
-            manager.deleteNotifications()
-            //print("updateNoti_2")
-        }
-    }
-    
-    func setNotification(){
-       
-        let todoListViewModel = TodoViewModel()
-        let todayCount = todoListViewModel.todayTodos.count
-        let manager = LocalNotificationManager()
-       
-        if todayCount == 0 {
-            manager.deleteNotifications()
-            manager.addNotification(title: "오늘의 할일을 등록해주세요.")
-        } else {
-            manager.deleteNotifications()
-            manager.addNotification(title: "오늘의 할일 진행상황 😎")
-        }
-        manager.deleteNotifications()
-        manager.schedule()
     }
     
     func retrieveTodo() {
@@ -126,9 +94,20 @@ class TodoViewModel {
         case upcoming
         
         var title: String {
+            let plist = UserDefaults.standard
             switch self {
-            case .today: return "Today"
-            default: return "Upcoming"
+            case .today:
+                if plist.bool(forKey: "KorOn") == true {
+                    return "오늘의 할일"
+                }else {
+                    return "Today"
+                }
+            default:
+                if plist.bool(forKey: "KorOn") == true {
+                    return "다음에 할일"
+                }else {
+                    return "Upcoming"
+                }
             }
         }
     }

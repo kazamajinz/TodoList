@@ -106,9 +106,19 @@ class TodoListViewController: UIViewController {
         todoListViewModel.addTodo(todo)
         collectionView.reloadData()
         inputTextField.text = ""
-        isTodayButton.isSelected = false
+        // isTodayButton.isSelected = false
         
         
+        
+        if !isTodayButton.isSelected {
+            let item = self.collectionView(self.collectionView, numberOfItemsInSection: 1) - 1
+            let lastItemIndex = IndexPath(item: item, section: 1)
+            self.collectionView.scrollToItem(at: lastItemIndex, at: .top, animated: true)
+        } else {
+            let item = self.collectionView(self.collectionView, numberOfItemsInSection: 0) - 1
+            let lastItemIndex = IndexPath(item: item, section: 0)
+            self.collectionView.scrollToItem(at: lastItemIndex, at: .top, animated: true)
+        }
         
     }
     
@@ -132,6 +142,25 @@ extension TodoListViewController {
             let adjustmentHeight = keyboardFrame.height - view.safeAreaInsets.bottom
             inputViewBottom.constant = adjustmentHeight
             collectionViewBottom.constant = 60 + adjustmentHeight
+            
+            if isTodayButton.isSelected {
+                //today 이동
+                let item = self.collectionView(self.collectionView, numberOfItemsInSection: 0) - 1
+                let lastItemIndex = IndexPath(item: item, section: 0)
+                self.collectionView.scrollToItem(at: lastItemIndex, at: .top, animated: true)
+                
+            } else {
+                
+                //upcoming 이동
+                
+                let item = self.collectionView(self.collectionView, numberOfItemsInSection: 1) - 1
+                let lastItemIndex = IndexPath(item: item, section: 1)
+                self.collectionView.scrollToItem(at: lastItemIndex, at: .top, animated: true)
+            }
+            
+            
+
+ 
         } else {
             inputViewBottom.constant = 0
             collectionViewBottom.constant = 60
@@ -271,7 +300,6 @@ class TodoListCell: UICollectionViewCell {
     @IBOutlet weak var strikeThroughWidth: NSLayoutConstraint!
     
     @IBOutlet var tradeButton: UIButton!
-    
     
    var tradeButtonTapHandler: (() -> Void)?
     var doneButtonTapHandler: ((Bool) -> Void)?

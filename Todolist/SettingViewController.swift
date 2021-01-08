@@ -49,7 +49,7 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-8496395555121734/4339892030")
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/5224354917")
         rewardedAd?.load(GADRequest())
         
     }
@@ -57,7 +57,7 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-8496395555121734/4339892030")
+        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/5224354917")
         rewardedAd?.load(GADRequest())
         
         self.tableView.rowHeight = 44
@@ -264,7 +264,7 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     @IBAction func adClick(_ sender: Any) {
        
         rewardedAd?.present(fromRootViewController: self, delegate: self)
-          rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-8496395555121734/4339892030")
+          rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-3940256099942544/5224354917")
           rewardedAd?.load(GADRequest())
     }
     
@@ -279,12 +279,18 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     
     // MARK: GADRewardedAdDelegate
     func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
+        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
     }
 
     func rewardedAdDidPresent(_ rewardedAd: GADRewardedAd) {
+        print("Rewarded ad presented.")
     }
 
     func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
+        print("Rewarded ad dismissed.")
+    }
+    func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
+      print("Rewarded ad failed to present.")
     }
 
 }
