@@ -68,21 +68,15 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
         Language.isOn = plist.bool(forKey: "KorOn")
         updateKor()
         
+        
         segMode.selectedSegmentIndex = plist.integer(forKey: "segMode")
         if segMode.selectedSegmentIndex == 0 {
-            UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = .unspecified
-            }
+            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = UIUserInterfaceStyle.unspecified
         } else if segMode.selectedSegmentIndex == 1 {
-            UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = .light
-            }
+            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
         } else {
-            UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = .dark
-            }
+            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = UIUserInterfaceStyle.dark
         }
-        
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         Version.text = appVersion
         
@@ -161,25 +155,19 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     }
 
     @IBAction func segue(_ sender: UISegmentedControl) {
+        
         if sender.selectedSegmentIndex == 0 {
-            UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = .unspecified
-            }
-        }else if sender.selectedSegmentIndex == 1 {
-            UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = .light
-            }
-        }else{
-            UIApplication.shared.windows.forEach { window in
-                window.overrideUserInterfaceStyle = .dark
-            }
+            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = UIUserInterfaceStyle.unspecified
+        } else if sender.selectedSegmentIndex == 1 {
+            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = UIUserInterfaceStyle.light
+         } else {
+            UIApplication.shared.windows.first?.overrideUserInterfaceStyle = UIUserInterfaceStyle.dark
         }
         
         let plist = UserDefaults.standard
         let value = sender.selectedSegmentIndex
         plist.set(value, forKey: "segMode")
         plist.synchronize()
-        
     }
     
     @IBAction func LanguageOnOff(_ sender: UISwitch) {
@@ -220,9 +208,8 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     @IBAction func review(_ sender: Any) {
         let appleID = "1546963564"
         let url = "https://itunes.apple.com/app/id\(appleID)?action=write-review"
-        if let path = URL(string: url) {
+        guard let path = URL(string: url) else { return }
         UIApplication.shared.open(path, options: [:], completionHandler: nil)
-        }
     }
     
     // MARK: GADRewardedAdDelegate

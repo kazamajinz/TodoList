@@ -28,7 +28,6 @@ struct Todo: Codable, Equatable {
 class TodoManager {
     
     static let shared = TodoManager()
-    
     static var lastId: Int = 0
     
     var todos: [Todo] = []
