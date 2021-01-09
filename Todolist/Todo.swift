@@ -45,9 +45,6 @@ class TodoManager {
     
     func deleteTodo(_ todo: Todo) {
         todos = todos.filter { $0.id != todo.id }
-//        if let index = todos.firstIndex(of: todo) {
-//            todos.remove(at: index)
-//        }
         saveTodo()
     }
     

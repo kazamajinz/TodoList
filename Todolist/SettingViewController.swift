@@ -10,12 +10,8 @@ import GoogleMobileAds
 
 class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     
-    /// Is an ad being loaded.
     var adRequestInProgress = false
-
-    /// The rewarded video ad.
     var rewardedAd: GADRewardedAd?
-    
     
     @IBOutlet weak var ManualLb: UILabel!
     @IBOutlet weak var ThanksLb: UILabel!
@@ -24,21 +20,13 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     @IBOutlet weak var TimeSelectLb: UILabel!
     @IBOutlet weak var DarkModeLb: UILabel!
     @IBOutlet weak var LanguageLb: UILabel!
-    
-    
-    
     @IBOutlet weak var Version: UILabel!
-    
     @IBOutlet weak var TimeAlert: UISwitch!
-    
     @IBOutlet weak var timeText: UITextField!
-    
     @IBOutlet weak var segMode: UISegmentedControl!
-    
     @IBOutlet weak var Language: UISwitch!
     
     let datePicker = UIDatePicker()
-    
     let defaults = UserDefaults.standard
     let alertOn = "alertOn"
     let hourAlert = "hourAlert"
@@ -68,7 +56,6 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
         Language.isOn = plist.bool(forKey: "KorOn")
         updateKor()
         
-        
         segMode.selectedSegmentIndex = plist.integer(forKey: "segMode")
         if segMode.selectedSegmentIndex == 0 {
             UIApplication.shared.windows.first?.overrideUserInterfaceStyle = UIUserInterfaceStyle.unspecified
@@ -77,6 +64,7 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
         } else {
             UIApplication.shared.windows.first?.overrideUserInterfaceStyle = UIUserInterfaceStyle.dark
         }
+        
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         Version.text = appVersion
         
@@ -174,7 +162,7 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
         let value = sender.isOn
         let plist = UserDefaults.standard
         plist.set(value, forKey: "KorOn")
-        plist.synchronize() // 동기화 처리
+        plist.synchronize()
         updateKor()
     }
     
