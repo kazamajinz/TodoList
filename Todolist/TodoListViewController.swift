@@ -56,6 +56,7 @@ class TodoListViewController: UIViewController {
                 {
                     print("First launch")
                     UserDefaults.standard.set(true, forKey: "launchedBefore")
+                    
                 }
     }
 

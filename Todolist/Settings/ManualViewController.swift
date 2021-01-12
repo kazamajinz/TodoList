@@ -51,9 +51,7 @@ class ManualViewController: UIViewController {
                 default:
                     break
             }
-            
         }
-        
     }
     
     @IBAction func pageChange(_ sender: UIPageControl) {
