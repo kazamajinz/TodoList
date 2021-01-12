@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SupporterViewController: UIViewController {
+class SupporterViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

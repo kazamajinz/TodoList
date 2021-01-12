@@ -21,6 +21,10 @@
 		9B2830FF25970C4E00F814DE /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2830FE25970C4E00F814DE /* Todo.swift */; };
 		9B28310725970CBC00F814DE /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B28310625970CBC00F814DE /* TodoListViewController.swift */; };
 		9B283121259725D100F814DE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B283120259725D100F814DE /* SettingViewController.swift */; };
+		9BC2067D25ACC48C00677020 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC2067C25ACC48C00677020 /* setting.png */; };
+		9BC2068225ACC49300677020 /* task.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC2068125ACC49300677020 /* task.png */; };
+		9BC2069725ACCB2900677020 /* setting2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC2069525ACCB2900677020 /* setting2.png */; };
+		9BC2069825ACCB2900677020 /* task2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC2069625ACCB2900677020 /* task2.png */; };
 		9BCBD295259C40BD00B149D4 /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBD294259C40BD00B149D4 /* ManualViewController.swift */; };
 		9BCBD29A259C40F700B149D4 /* SupporterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBD299259C40F700B149D4 /* SupporterViewController.swift */; };
 		A472EEB4A8B00132EEAD1ED5 /* Pods_Todolist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618D8C19324AC8527012472E /* Pods_Todolist.framework */; };
@@ -84,6 +88,10 @@
 		9B3377FD259E63AF00656FCA /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3377FF259E640F00656FCA /* GoogleMobileAdsFramework-Current */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "GoogleMobileAdsFramework-Current"; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current"; sourceTree = "<group>"; };
 		9B337807259E64F000656FCA /* ios-arm64_armv7 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "ios-arm64_armv7"; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework/ios-arm64_armv7"; sourceTree = "<group>"; };
+		9BC2067C25ACC48C00677020 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = ../../../../../Downloads/setting.png; sourceTree = "<group>"; };
+		9BC2068125ACC49300677020 /* task.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = task.png; path = ../../../../../Downloads/task.png; sourceTree = "<group>"; };
+		9BC2069525ACCB2900677020 /* setting2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting2.png; path = ../../../../../Downloads/setting2.png; sourceTree = "<group>"; };
+		9BC2069625ACCB2900677020 /* task2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = task2.png; path = ../../../../../Downloads/task2.png; sourceTree = "<group>"; };
 		9BC993302598F68A00526B97 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		9BC9942C2599051700526B97 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		9BCBD294259C40BD00B149D4 /* ManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManualViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +179,7 @@
 				9B28310625970CBC00F814DE /* TodoListViewController.swift */,
 				9B283120259725D100F814DE /* SettingViewController.swift */,
 				9B2830F425970BB800F814DE /* LocalNotificationManager.swift */,
+				9BC2067B25ACC42000677020 /* Images */,
 				9BCD564525A8C07900D3CF77 /* Settings */,
 			);
 			path = Todolist;
@@ -192,6 +201,17 @@
 				9B2830E525970B4B00F814DE /* Info.plist */,
 			);
 			path = TodolistUITests;
+			sourceTree = "<group>";
+		};
+		9BC2067B25ACC42000677020 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				9BC2067C25ACC48C00677020 /* setting.png */,
+				9BC2068125ACC49300677020 /* task.png */,
+				9BC2069525ACCB2900677020 /* setting2.png */,
+				9BC2069625ACCB2900677020 /* task2.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 		9BC9932D2598F68A00526B97 /* Frameworks */ = {
@@ -330,6 +350,10 @@
 			files = (
 				9B2830CE25970B4B00F814DE /* LaunchScreen.storyboard in Resources */,
 				9B2830CB25970B4A00F814DE /* Assets.xcassets in Resources */,
+				9BC2068225ACC49300677020 /* task.png in Resources */,
+				9BC2069725ACCB2900677020 /* setting2.png in Resources */,
+				9BC2067D25ACC48C00677020 /* setting.png in Resources */,
+				9BC2069825ACCB2900677020 /* task2.png in Resources */,
 				9B2830C925970B4700F814DE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

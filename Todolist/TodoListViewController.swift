@@ -47,6 +47,16 @@ class TodoListViewController: UIViewController {
                 window.overrideUserInterfaceStyle = .dark
             }
         }
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+                if launchedBefore
+                {
+                    print("Not first launch.")
+                }
+                else
+                {
+                    print("First launch")
+                    UserDefaults.standard.set(true, forKey: "launchedBefore")
+                }
     }
 
     override func viewDidAppear(_ animated: Bool) {
