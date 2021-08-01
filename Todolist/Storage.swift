@@ -63,7 +63,6 @@ public class Storage {
     static func remove(_ fileName: String, from directory: Directory) {
         let url = directory.url.appendingPathComponent(fileName, isDirectory: false)
         guard FileManager.default.fileExists(atPath: url.path) else { return }
-        
         do {
             try FileManager.default.removeItem(at: url)
         } catch let error {
@@ -91,7 +90,6 @@ extension Storage {
         print("---> [TEST] save to here: \(url)")
         let encoder = JSONEncoder()
         encoder.outputFormatting = .prettyPrinted
-        
         do {
             let data = try encoder.encode(obj)
             if FileManager.default.fileExists(atPath: url.path) {

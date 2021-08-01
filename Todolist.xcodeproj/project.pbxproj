@@ -21,6 +21,7 @@
 		9B2830FF25970C4E00F814DE /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B2830FE25970C4E00F814DE /* Todo.swift */; };
 		9B28310725970CBC00F814DE /* TodoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B28310625970CBC00F814DE /* TodoListViewController.swift */; };
 		9B283121259725D100F814DE /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B283120259725D100F814DE /* SettingViewController.swift */; };
+		9BA4863225B5F4BA0071BAC0 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA4863125B5F4BA0071BAC0 /* TutorialViewController.swift */; };
 		9BC2067D25ACC48C00677020 /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC2067C25ACC48C00677020 /* setting.png */; };
 		9BC2068225ACC49300677020 /* task.png in Resources */ = {isa = PBXBuildFile; fileRef = 9BC2068125ACC49300677020 /* task.png */; };
 		9BCBD295259C40BD00B149D4 /* ManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCBD294259C40BD00B149D4 /* ManualViewController.swift */; };
@@ -88,6 +89,7 @@
 		9B3377FD259E63AF00656FCA /* GoogleUtilities.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = GoogleUtilities.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B3377FF259E640F00656FCA /* GoogleMobileAdsFramework-Current */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "GoogleMobileAdsFramework-Current"; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current"; sourceTree = "<group>"; };
 		9B337807259E64F000656FCA /* ios-arm64_armv7 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "ios-arm64_armv7"; path = "Pods/Google-Mobile-Ads-SDK/Frameworks/GoogleMobileAdsFramework-Current/GoogleMobileAds.xcframework/ios-arm64_armv7"; sourceTree = "<group>"; };
+		9BA4863125B5F4BA0071BAC0 /* TutorialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		9BC2067C25ACC48C00677020 /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = setting.png; path = ../../../../../Downloads/setting.png; sourceTree = "<group>"; };
 		9BC2068125ACC49300677020 /* task.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = task.png; path = ../../../../../Downloads/task.png; sourceTree = "<group>"; };
 		9BC993302598F68A00526B97 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -179,6 +181,7 @@
 				9B28310625970CBC00F814DE /* TodoListViewController.swift */,
 				9B283120259725D100F814DE /* SettingViewController.swift */,
 				9B2830F425970BB800F814DE /* LocalNotificationManager.swift */,
+				9BA4863125B5F4BA0071BAC0 /* TutorialViewController.swift */,
 				9BC2067B25ACC42000677020 /* Images */,
 				9BCD564525A8C07900D3CF77 /* Settings */,
 			);
@@ -484,6 +487,7 @@
 			files = (
 				9B28310725970CBC00F814DE /* TodoListViewController.swift in Sources */,
 				9B2830FF25970C4E00F814DE /* Todo.swift in Sources */,
+				9BA4863225B5F4BA0071BAC0 /* TutorialViewController.swift in Sources */,
 				9B2830C225970B4700F814DE /* AppDelegate.swift in Sources */,
 				9B2830F525970BB800F814DE /* LocalNotificationManager.swift in Sources */,
 				9B2830C425970B4700F814DE /* SceneDelegate.swift in Sources */,

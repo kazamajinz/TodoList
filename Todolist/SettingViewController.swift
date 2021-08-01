@@ -71,7 +71,6 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     }
     
     func createDatePicker() {
-       
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
