@@ -8,10 +8,9 @@
 import UIKit
 import GoogleMobileAds
 
-class SettingViewController: UITableViewController, GADRewardedAdDelegate{
+class SettingViewController: UITableViewController{
     
     var adRequestInProgress = false
-    var rewardedAd: GADRewardedAd?
     
     @IBOutlet weak var ManualLb: UILabel!
     @IBOutlet weak var ThanksLb: UILabel!
@@ -35,14 +34,10 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-8496395555121734/4339892030")
-        rewardedAd?.load(GADRequest())
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-8496395555121734/4339892030")
-        rewardedAd?.load(GADRequest())
         
         self.tableView.rowHeight = 44
        
@@ -186,31 +181,11 @@ class SettingViewController: UITableViewController, GADRewardedAdDelegate{
         }
     }
     
-    @IBAction func adClick(_ sender: Any) {
-        rewardedAd?.present(fromRootViewController: self, delegate: self)
-          rewardedAd = GADRewardedAd(adUnitID: "ca-app-pub-8496395555121734/4339892030")
-          rewardedAd?.load(GADRequest())
-    }
-    
     @IBAction func review(_ sender: Any) {
         let appleID = "1546963564"
         let url = "https://itunes.apple.com/app/id\(appleID)?action=write-review"
         guard let path = URL(string: url) else { return }
         UIApplication.shared.open(path, options: [:], completionHandler: nil)
-    }
-    
-    // MARK: GADRewardedAdDelegate
-    func rewardedAd(_ rewardedAd: GADRewardedAd, userDidEarn reward: GADAdReward) {
-        print("Reward received with currency: \(reward.type), amount \(reward.amount).")
-    }
-    func rewardedAdDidPresent(_ rewardedAd: GADRewardedAd) {
-        print("Rewarded ad presented.")
-    }
-    func rewardedAdDidDismiss(_ rewardedAd: GADRewardedAd) {
-        print("Rewarded ad dismissed.")
-    }
-    func rewardedAd(_ rewardedAd: GADRewardedAd, didFailToPresentWithError error: Error) {
-      print("Rewarded ad failed to present.")
     }
 }
 

@@ -1,0 +1,16 @@
+PODS:
+  - GoogleMobileAds (7.8.0)
+
+DEPENDENCIES:
+  - GoogleMobileAds
+
+SPEC REPOS:
+  trunk:
+    - GoogleMobileAds
+
+SPEC CHECKSUMS:
+  GoogleMobileAds: 0ed4d41b03fe768e2e2945df68707fd4ff97c179
+
+PODFILE CHECKSUM: 51401526d78acb5727a33a4afaf05ada89ab3522
+
+COCOAPODS: 1.11.2
